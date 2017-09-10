@@ -1,0 +1,705 @@
+\documentclass{article}
+
+%%%%%%%%%%%%%%%% 
+\usepackage{appendix}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[byname]{smartref}
+\usepackage{hyperref} 
+\usepackage{txfonts}
+\usepackage{tocloft}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{listings}
+%\usepackage{mathtools}
+\usetikzlibrary{positioning}
+\usepackage{tikz-qtree,tikz-qtree-compat}
+\usetikzlibrary{trees}
+\usetikzlibrary{arrows,positioning,automata,shadows,fit,shapes}
+%\usepackage{mathtools}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage{pagecolor,lipsum}
+ %\pagecolor{lightgray}
+\usepackage[english]{babel}
+%\usepackage[table]{xcolor}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{authblk}
+\usepackage{tikz-cd}
+%\usepackage{chngcntr}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+%\usepackage[table]{xcolor}
+%\newcommand{\Z}{\mathbb{Z}}
+%\newcommand{\Q}{\mathbb{Q}}
+
+
+%\hypersetup{
+%	unicode = true,
+%	colorlinks = true,
+%	citecolor = blue,
+%	filecolor = black,
+%	linkcolor = black,
+%	urlcolor = black,
+%	pdfstartview = {FitH},
+%}
+
+
+
+\bibliographystyle{amsplain}
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{remark}[theorem]{Remark}
+%\newenvironment{proof}[1][Proof]{\begin{trivlist}
+
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+%\newenvironment{definition}[1][Definition]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+%\newenvironment{example}[1][Example]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+%\newenvironment{remark}[1][Remark]{\begin{trivlist}
+%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+%\newcommand{\qed}{\nobreak \ifvmode \relax \else
+%      \ifdim\lastskip<1.5em \hskip-\lastskip
+%      \hskip1.5em plus0em minus0.5em \fi \nobreak
+%      \vrule height0.75em width0.5em depth0.25em\fi}
+%
+%\newtheorem{exmp}[theorem]{Example}
+%\newtheorem{exmple}[theorem]{Example}
+%\newtheorem{conj}[theorem]{Conjecture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\makeatletter
+%\@addtoreset{theorem}{chapter}
+%\makeatother
+%%%%%%%%%%%%%%%chapter2%%%%%%%%%%%%%%%
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{remark}{Remark}
+\newtheorem{note}[theorem]{Note}
+%\counterwithin*{theorem}{chapter} 
+
+
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\C}{\ensuremath{\mathcal{C}}}
+\newcommand{\Po}{\ensuremath{\mathcal{P}}}
+\newcommand{\G}{G}
+\newcommand{\glat}{$G$-lattice}
+\newcommand{\tand}{\ensuremath{\,\,\, \text{and} \,\,\,}}
+\newcommand{\exactseq}[1]{\ensuremath{0 \longrightarrow M_{#1} \longrightarrow L_{#1} \longrightarrow \Z \longrightarrow 0}}
+\newcommand{\exactseqs}[1]{\ensuremath{0 \longrightarrow M_{#1} \longrightarrow L_{#1} \longrightarrow \Z^{-} \longrightarrow 0}}
+\newcommand*{\QEDA}{\hfill\ensuremath{\blacksquare}}
+
+
+%%%%%%%%%%%%%%%%
+
+\title{Algebraic Construction of Quasi Split Algebraic Tori}
+%\author{Your Name  \\
+%	Your Company / University  \\
+%	\and 
+%	The Other Dude \\
+%	His Company / University \\
+%	}
+
+\date{\today}
+% Hint: \title{what ever}, \author{who care} and \date{when ever} could stand 
+% before or after the \begin{document} command 
+% BUT the \maketitle command MUST come AFTER the \begin{document} command! 
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+\noindent
+The main purpose of this work is to give a constructive proof for the No Name Lemma. Let $G$ be a finite group, $K$ be a field, $L$ be a permutation $G$-lattice with the standard basis and $K[L]$ be the group algebra of $L$ over $K$. The No Name Lemma asserts that the invariant field of the quotient field of $K[L]$, $K(L)^G$ is a purely transcendental extension of $K^G$. In other words, there exist $y_1, \ldots , y_n$ which are algebraically independent over $K^G$ such that $K(L)^G \cong K^G(y_1, \ldots , y_n)$. For a Galois extension $K/F$ with $G = \mathrm{Gal}(K/F)$ we have introduced $\mathcal{Y}=\lbrace y_1, \ldots, y_n \rbrace \subset K[L]^G$ with desired properties. Moreover, $\mathcal{Y}$ can be used to get a concrete description of $K[L]^G$. For a sign permutation $G$-lattice $L$, a more general argument is given so that we can concretely find a transcendence basis of $K(L)^G$ over $K^G$. Since the coordinate ring (resp. the rational function field) of an algebraic torus is given as invariant ring (resp. field), $K[L]^G$ (resp. $K(L)^G$) where $L$ is the character lattice of the algebraic torus, the given proof can be used to construct the group ring or rational function field of a quasi split algebraic torus.
+\end{abstract}
+
+\section{Introduction}
+An algebraic $F$-torus $T$ is an algebraic group defined over a field $F$, which is a torus over an algebraic closure $\bar{F}$. Since a torus is a finite product of $\mathbb{G}_m$ into itself, we say $T$ splits over $\bar{F}$. In general $\bar{F}$ is not the smallest field such that $T$ splits over it. It is known that an algebraic $F$-torus $T$ splits over a finite Galois extension of $F$. If $T$ splits over $K/F$ and $G = \mathrm{Gal}(K/F)$, then $G$ is called the splitting group of $T$. For more details see \cite[Chapter 2]{Voskresenskii}.  \\
+\\
+It is known that there is a duality between the category of algebraic tori which split by $G$ and $G$-lattices. A $G$-lattice is a $\Z$-free module of finite rank together with a group homomorphism $\rho: G \longrightarrow GL(n,\Z)$. This gives an action of $G$ on the lattice by automorphisms.\\
+\\
+If $R$ is a commutative unital ring, we can extend the action on a $G$-lattice $L $ to an action on $R[L]$ (the group ring of $L$ over $R$). Now $L$ becomes a multiplicative group in $R[L]$. The multiplicative invariants are the invariant elements in $R[L]$ under the action of $G$. \\
+\\
+For a given algebraic torus $T$ with splitting group $G$, its character module $\mathrm{Hom}(T,\mathbb{G}_m)$ is a $G$-lattice. If $L$ is a $G$-lattice, then $\mathrm{Spec}(K[L]^G)$ is an algebraic torus with splitting group $G$.\\
+ \\
+In light of the duality between algebraic tori and $G$-lattices, one can Identify $K[L]^G$ as the coordinate ring of an algebraic torus $T$. Similarly $K(L)^G$ is the rational function field of $T$.\\
+\\
+On the other hand having a $G$-lattice $L$ means we have  
+$$
+G \longrightarrow \mathrm{GL}(L) \cong \mathrm{GL}(n,\mathbb{Z}),
+$$
+Hence any algebraic torus corresponds to a lattice and a finite subgroup of $\mathrm{GL}(n,\Z)$. In this paper our approach is to study the corresponding groups and lattices to algebraic tori. The following assumption holds throughout the paper.
+
+\paragraph{Assumption}\label{Assumption}
+If $G$ is a finite subgroup of $\mathrm{GL}(n,\Z)$, then the corresponding lattice to $G$ which is denoted by $L_G$ is the rank $n$ lattice generated by the standard basis, i.e. $L_G = \langle \textbf{e}_i : i  = 1, \ldots, n \rangle_\Z$ where $(\textbf{e}_i)_j = \delta_{ij}$. The action of $G$ on $L_G$ is given by multiplication from right on the $\textbf{e}_i$'s. Moreover, if $G \cong \mathrm{Gal}(K/F)$ for some finite Galois extension $K/F$ then $K[L_G] \cong K[x^{\pm 1}_1, \ldots , x^{\pm 1}_n]$, that is the Laurent polynomial ring, and $K(L_G)$ which is the quotient field of $K[L_G]$ is isomorphic to $K(x_1, \ldots , x_n)$ ($x_i$'s are algebraically independent over $K$) are equipped with an action of $G$ as
+\begin{itemize}
+\item $G$ acts as Galois group on $K$ 
+\item $\forall g \in G, \,\,\, g(x_i) = \prod_{j=1}^{j=n} x_j^{a_{ij}}$  where $a_{ij}$'s are given by $g(e_i) = \sum_{j=1}^{j=n} a_{ij}e_j$.
+\end{itemize}
+Also $T_G$ is the corresponding algebraic torus to $L_G$ i.e. $T_G$ is an algebraic torus defined on $F$ which splits over $K$, with character lattice $L_G$. 
+\\
+\\
+A $G$-lattice $L$, is called permutation (resp. sign permutation) if it has a $\Z$-basis which is permuted (resp. up to sign changes) by $G$. The following lemma which will be proved later on, characterizes permutation $G$-lattices. 
+\paragraph{Lemma}
+a $G$-lattice of rank $n$ is a permutation lattice if and only if $G$ is conjugate to a subgroup of $\mathbb{S}_n$ where $$\mathbb{S}_n = \langle  \sigma = \left[ \begin{array}{c|c}
+0 & 1\\
+\hline
+I_{n-1} &0
+\end{array} \right] 
+, \,
+\tau = \left[ \begin{array}{c|c}
+\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array} & 0\\
+\hline
+0 & I_{n-2}
+\end{array}
+\right] \rangle.$$
+Among algebraic tori there are families with permutation or sign permutation character lattices. An algebraic torus with a permutation character lattice is called quasi split. These two families are known to be rational. Although computationally we do not have an efficient algorithm in hand to decide whether a given lattice is permutation, the structure of a quasi split torus is well understood.\\
+\\
+The No Name Lemma asserts that if $L$ is a permutation $G$-lattice and $K$ is a $G$-field, then $K(L)^G$ is rational over $K^G$ (see \cite{Lenstra}, \cite{Domokos}). This specifically implies that a quasi split torus is rational. Although the No Name Lemma implies rationality of a quasi split torus, it does not give us concrete description of a transcendence basis of the rational function field. Providing a constructive proof for the No Name Lemma is another problem which is solved here. The proof is based on a generalization of the Moore determinant \cite[Section 1.3]{Goss}. More precisely we will prove a generalized version of the No Name Lemma.\\
+\\
+\paragraph{Theorem}
+Assume $G \leq \mathrm{GL}(n,\Z)$ and the corresponding $G$-lattice, $L_G$ (as in Definition \ref{Assumption}), is sign permutation. Suppose that $G$ acts transitively (up to sign) on $L_G$. Let $K/F$ be a finite Galois extension with Galois group $G$. Let $\alpha \in K$ be a normal element for the Galois extension $K/F$. Then 
+$$K(L_G)^G = K(x_1,\ldots, x_n)^G = F(y_1, \ldots, y_{n}),$$ 
+where $S = \sum_{g \in G} g \in \Z[G]$ and $y_i = S(\alpha (1+x_i)^{-1})$ for $ i = 1, \ldots, n$.
+\\
+\\
+An algebraic torus is defined without using an ideal of a polynomial ring. Even the function field (resp. coordinate ring) of a general algebraic torus is defined as the field of invariants of a field (resp. ring of) under the action of some finite group. Considering the fact that these invariants are multiplicative, it is not easy to find these invariants in general. To the best of the authors knowledge, there are only a few algorithms for finding the multiplicative invariants (see \cite{Kemper} and \cite{Lorenz}). The results presented in this chapter allow us to find multiplicative invariants in the particular cases where the lattice is permutation or sign permutation.\\
+\\
+We present results concerning the construction of algebraic function field and coordinate ring of quasi split tori. The first section is devoted to a brief discussion of the needed material. In the second section, a constructive proof of the No Name Lemma is presented. This can be used to find an explicit transcendence basis of the rational function field of a quasi split torus. The final section presents a similar result for finding the function field of an algebraic torus with sign permutation lattice.
+
+\section{Preliminaries}
+In this section, we briefly take a look at our main ingredients to present the results in the later section. In order to give a concrete proof of the No Name Lemma, we will use a permutation basis of a given permutation lattice. Hence the problem of finding a permutation basis is discussed. A normal element of a given Galois extension is the other thing we will need. A brief discussion on normal element and normal basis of Galois extensions are provided.\\
+\\
+%We have already seen that for a given finite subgroup of $G \leq \mathrm{GL}(n,\Z)$, the rational function field and  the coordinate ring of $T_{G,F}$ are respectively given by $K(x_1, \ldots, x_n)^G$ and $K[x^{\pm 1}_1, \ldots, x^{\pm 1}_n]^G$ (see Definition \ref{Assumption}).\\
+%\\
+In general for a given $G$-lattice, we do not have a method to determine if the lattice is permutation or not. Let us take a closer look at the structure of permutation lattices to get some ideas.  \\
+\\The following lemma characterizes permutation lattices. Let $\mathbb{S}_n$ be the group generated by $$
+\sigma = \left[ \begin{array}{c|c}
+0 & 1\\
+\hline
+I_{n-1} &0
+\end{array} \right] \,\,\,
+\text{and} \,\,\,
+\tau = \left[ \begin{array}{c|c}
+\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array} & 0\\
+\hline
+0 & I_{n-2}
+\end{array}
+\right].$$ One can see $\mathbb{S}_n$ is the group of all permutation matrices.
+\begin{lemma}\label{PermLatChar}
+Let $ G \leq \mathrm{GL}(n,\mathbb{Z})$ be finite. The $G$-lattice corresponding to $G$ is a permutation lattice if and only if $G$ is conjugate to one of the subgroups of $\mathbb{S}_n$.
+\end{lemma} 
+\begin{proof}
+$(\Rightarrow)$ Assume that $G = \langle \sigma_i: 1\leq i \leq m\rangle$ and that $L_G$ has the standard basis $\lbrace e_1, \ldots , e_n \rbrace$. If $L_G$ is a permutation lattice, then there exists a basis $W=\lbrace \alpha_1 , \cdots, \alpha_n \rbrace \subset L_G$ such that $ G$ acts as permutation on   $W$ i.e. for any $\sigma \in G$ and $1 \leq i \leq n$
+\begin{displaymath}\label{sigma}
+\alpha_i \cdot \sigma = \alpha_{s_i} 
+\end{displaymath}
+ for some $s_i \in  \lbrace 1, \ldots, n \rbrace$. By defining $T = \begin{bmatrix}
+\alpha_1 & \cdots & \alpha_n
+\end{bmatrix}^t $ , the above equations imply 
+ 
+$$   T\sigma = P_{\sigma} T \,\, \text{and thus} \,\, T\sigma T^{-1} = P_{\sigma}$$ where $P_{\sigma}$ is a permutation matrix of size $n$. Note that since $W$ forms a basis for $L_G$, $T$ is invertible. The group $P$ generated by$\lbrace P_{\sigma}: \sigma \in \lbrace \sigma_1, \ldots, \sigma_m \rbrace \rbrace$ is clearly a subgroup of $\mathbb{S}_n$ and $TGT^{-1}= P$, which means that $G$ and $P$ are conjugate in $\mathrm{GL}(n,\Z)$.\\
+$(\Leftarrow)$ is obvious.
+\end{proof}
+\noindent
+The proof of the previous lemma is simply saying that if a lattice is a permutation lattice then we can find an invertible matrix (change of basis matrix) such that $TGT^{-1}$ is a subgroup of $\mathrm{GL}(n,\Z)$ generated by permutation matrices.\\
+\\
+However, to the best of the authors knowledge there is no known general algorithm to determine if a given lattice is permutation in general. \\
+\\
+%For a given group $G\leq \mathrm{GL}(n,\Z)$ with $m$ generators one can always form a matrix $T$ with $n^2$ indeterminates $x_{11}, \ldots , x_{nn}$ as entries, then form 
+%$$
+%\begin{bmatrix}
+%x_{11} & x_{12} & \cdots & x_{1n}\\
+%x_{21} & x_{22} & \cdots & x_{2n}\\
+%\vdots & \vdots & \cdots & \vdots\\
+%x_{n1} & x_{n2} & \cdots & x_{nn}\\
+%\end{bmatrix}\sigma = P_{\sigma}\begin{bmatrix}
+%x_{11} & x_{12} & \cdots & x_{1n}\\
+%x_{21} & x_{22} & \cdots & x_{2n}\\
+%\vdots & \vdots & \cdots & \vdots\\
+%x_{n1} & x_{n2} & \cdots & x_{nn}\\
+%\end{bmatrix}
+%$$
+%for $\sigma$ a generator of $G$ and $P_{\sigma}$ the corresponding permutation matrix. This gives $n^2$ equations in $n^2$ variables. Since we can do the same for any generator of $G$, one can form a linear system of  $m\times n^2$ equations with $n^2$ variables. We can always solve the system over rationals. If the system has no solution over $\Q$, it has no solutions over $\Z$ as well. However, there are two difficulties in this approach. The first problem is the choice of the permutation matrices $P_{\sigma}$, as it is not obvious how to choose appropriate candidates. The second problem happens when the system has a solution set over $\Q$ of positive dimension. In this case, we need to find a solution over the integers in such a way that $T$ has determinant in $\lbrace \pm 1 \rbrace$. Finding a solution of this type is a hard problem to which we offer no solution.\\
+%\\
+Since we are not looking for a solution to solve the mentioned decision problem for lattices, we assume our groups are subgroups of $\mathbb{S}_n$. This assures us that the lattice we are working with is a permutation lattice with the standard basis. We also note that since conjugate subgroups of $\mathrm{GL}(n,\Z)$ correspond to isomorphic lattices, with our assumption we are discussing isomorphism classes of permutation lattices. We also know that isomorphic lattices correspond to isomorphic algebraic tori.
+%
+%
+%Suppose $K/F$ is a finite Galois extension with $G = \mathrm{Gal}(K/F)$. The purpose of this section is to provide some information about a specific type of basis for $K$ as a $F$-vector space. We are interested in a basis on which the action of $G$ permutes the elements, it will play a central role in the results of this chapter.
+\begin{definition}
+Assume $K/F$ is a finite Galois extension and $G = \lbrace \sigma_1, \ldots , \sigma_n \rbrace$ is the Galois group of $K/F$. An element $\alpha \in K$ is called normal if $B = \lbrace \sigma_1(\alpha), \ldots , \sigma_n(\alpha) \rbrace$ is an $F$-basis for $K$, and we call $B$ a normal basis of $K$ over $F$.
+\end{definition} 
+\noindent
+The existence of a normal basis for a finite Galois extension was proven in \cite{NoetherNormalBasis} and \cite{Deuring}.
+\begin{theorem}\cite[Theorem 6.13.1]{Lang}\label{NormalBasisTheorem} (Normal Basis Theorem)
+Let $K/F$ be a finite Galois extension of degree $n$. Let $\sigma_1, \ldots , \sigma_n$ be the elements of the Galois group $G$. Then there exists an element $\alpha \in K$ such that $\sigma_1(\alpha), \ldots , \sigma_n(\alpha)$ form a basis of $K$ over $F$.
+\end{theorem}
+%\begin{remark}
+%It is worth mentioning that Lenstra generalized normal basis theorem to infinite Galois extensions \cite{LenstraInfiniteGalois}. Moreover, in \cite{LenstraPrimitive} the authors proved that any finite extension of a finite field has a normal basis consisting of primitive roots.
+%\end{remark}
+%\noindent
+%There are different proofs for the normal basis theorem. The following argument, which is part of one of the proofs,  gives a concrete way to find a normal basis for a given finite Galois extension.\\
+%\\
+%Assume $K/F$ is a finite Galois extension and $G = \lbrace \sigma_1, \ldots , \sigma_n \rbrace$ is the Galois group of $K/F$. We are looking for an element $x \in K$ such that, if  $\sum_{i = 1}^n c_i \sigma_i(x)= 0$ (for $c_i \in F$), then $c_i = 0 $ for each $i$. Let $\lbrace \beta_1 , \ldots , \beta_n \rbrace$ be an $F$-basis for $K$. For indeterminates $x_1, \ldots, x_n$ we can write $x = x_1\beta_1 + \cdots + x_n \beta_n$.\\
+%\\
+%For $ \sigma \in \lbrace \sigma_1, \ldots , \sigma_n \rbrace$, if $\sum_{i = 1}^n c_i \sigma_i(x)= 0$, then $\sigma^{-1}(\sum_{i = 1}^n c_i \sigma_i(x)) = \sum_{i = 1}^n c_i \sigma^{-1}\sigma_i(x)= 0$. Thus we have 
+%$$
+%\begin{bmatrix}
+%\sigma_1^{-1}\sigma_1(x) & \sigma_1^{-1}\sigma_2(x) & \cdots & \sigma_1^{-1}\sigma_n(x)\\
+% \sigma_2^{-1}\sigma_1(x) & \sigma_2^{-1}\sigma_2(x) & \cdots & \sigma_2^{-1}\sigma_n(x)\\
+% \vdots & \vdots & \cdots & \vdots\\
+% \sigma_n^{-1}\sigma_1(x) & \sigma_n^{-1}\sigma_2(x) & \cdots & \sigma_n^{-1}\sigma_n(x)\\
+%\end{bmatrix} 
+%\begin{bmatrix}
+%c_1\\
+%c_2\\
+%\vdots\\
+%c_n
+%\end{bmatrix}= 0
+%$$
+%So it is enough to show that the above matrix, we call it $A(x)$, is invertible for some $x$. Replacing $x$
+% by $ x_1\beta_1 + \cdots + x_n \beta_n$ we get 
+% $$A(x) = A(x_1, \ldots , x_n) = \begin{bmatrix}
+%\sigma_1^{-1}\sigma_1(\sum_{i=1}^nx_i\beta_i) & \sigma_1^{-1}\sigma_2(\sum_{i=1}^nx_i\beta_i) & \cdots & \sigma_1^{-1}\sigma_n(\sum_{i=1}^nx_i\beta_i)\\
+% \sigma_2^{-1}\sigma_1(\sum_{i=1}^nx_i\beta_i) & \sigma_2^{-1}\sigma_2(\sum_{i=1}^nx_i\beta_i) & \cdots & \sigma_2^{-1}\sigma_n(\sum_{i=1}^nx_i\beta_i)\\
+% \vdots & \vdots & \cdots & \vdots\\
+% \sigma_n^{-1}\sigma_1(\sum_{i=1}^nx_i\beta_i) & \sigma_n^{-1}\sigma_2(\sum_{i=1}^nx_i\beta_i) & \cdots & \sigma_n^{-1}\sigma_n(\sum_{i=1}^nx_i\beta_i)\\
+%\end{bmatrix} $$
+%and $\det (A) \in K[x_1,\ldots , x_n]$. We just need to find $(a_1, \ldots , a_n) \in F^n$ so that $\det(A)(a_1, \ldots , a_n) \neq 0$. It is possible to show the existance of such element in $F^n$. Indeed this gives a complete proof of the theorem. Since we just wanted to explain a way to find a normal element, we skip the proof of existence (see \cite[Theorem 6.13.1]{Lang}).
+%\\
+%\\
+%The above argument gives a randomized method to find a normal element for a given extension by choosing $x_1, \ldots , x_n$ at random. 
+\noindent
+There are algorithms for finding a normal element. For an algorithm in characteristic zero see \cite{Girstmair}, in positive characteristic, see \cite{Giesbrecht} , \cite{Poli}. 
+
+\section{Construction of Quasi Split Tori}
+We have already seen the duality between algebraic tori and lattices. For a given $G \leq \mathrm{GL}(n,\Z)$ although we know $K(T_{G,F}) \cong K(x_1, \ldots, x_n)^G$ and $K[T_{G,F}] \cong K[x^{\pm 1}_1, \ldots , x^{\pm 1}_n]^G$ , it is given as a field (or ring) of multiplicative invariants, and we do not have a generating set for them. We are interested in finding the multiplicative invariants in a concrete way.\\
+\\
+There are many algorithms for finding the invariant rings for polynomial invariants. We invite the reader to consult \cite{Kemper2} and \cite{Sturmfels}. However, for multiplicative invariants the algorithmic side is not explored to some extent \cite{Kemper}, \cite{Renault}.\\
+\\ 
+In this section, we focus on a specific family of algebraic tori, namely quasi split tori. For this family we present machinery to construct rational function fields and coordinate rings. The lattice corresponding to a quasi split algebraic torus is a permutation lattice. The rationality of this kind of algebraic tori has been known for a long time. Since a quasi-split torus of dimension $d$ is rational over the base field, its function field is generated as a field by $d$ elements which are algebraically independent over the base field.\\
+\\
+When $L_G$ is a permutation lattice, the No Name Lemma, $K(T_{G,F})$ is a rational extension of $F$, i.e. there exist $y_1,\ldots,y_n \in K[x_1, \ldots , x_n]$ such that  $$K(x_1, \ldots, x_n)^G = F(y_1,\ldots,y_n)$$ and $y_1, \ldots, y_n$ are algebraically independent over $F$.\\
+\\The existence of $y_i$'s is related to the existence of a permutation basis for $L_G$. Hence having such a basis, enables us to construct the transcendence basis we are looking for.\\
+\\
+From the discussion of the previous section, we know that for a given permutation $G$-lattice, it is not easy to find a basis on which $G$ acts as a permutation. Hence, we will assume that $G$ is given as a subgroup of the group $\mathbb{S}_n$ generated by 
+$$
+\left[ \begin{array}{c|c}
+0 & 1\\
+\hline
+I_n &0
+\end{array} \right] \,\,\,
+\text{and} \,\,\,
+\left[ \begin{array}{c|c}
+\begin{array}{cc}
+0 & 1\\
+1 & 0
+\end{array} & 0\\
+\hline
+0 & I_{n-2}
+\end{array}
+\right]$$
+so that the corresponding $G$-lattice $L$ is a permutation (by Lemma \ref{PermLatChar}).  We note that conjugate subgroups of $\mathrm{GL}(n, \Z)$ correspond to isomorphic algebraic tori.
+\begin{remark}\label{ActionSn}
+Assume $\mathrm{S}_n$ is the symmetric group generated by $\sigma = (1 \,\, 2 \,\, \ldots \,\, n)$ and $\tau = (1 \,\, 2)$. Now the above generators of $\mathbb{S}_n$ can be seen as the images of $I_n$, under the action of $\sigma$ and $\tau$ on its rows which gives an isomorphism between $\mathrm{S}_n$ and $\mathbb{S}_n$. This shows that the action of $\delta \in \mathrm{S}_n$ on $e_i$, an element of the standard basis of $L_{\mathbb{S}_n}$, is given by $\delta(e_i) = e_{\delta^{-1}(i)}$ and similarly if we are dealing with $K(x_1, \ldots , x_n ) \cong K(L_{\mathbb{S}_n})$, we have $\delta(x_i) = x_{\delta^{-1}(i)}$ by Definition \ref{Assumption}.
+\end{remark}
+\noindent
+We need one more component to construct $T_{G,F}$. The last component is a finite Galois extension of a field $F$. In other words one needs to solve the inverse Galois problem for the pair $(G, F)$ since it is not the purpose of this thesis, we assume $K/F$ is a finite Galois extension and the action of $G$ on a basis of $K$ over $F$ is given.\\
+\\By the No Name Lemma, we know that the rational function field of $T_{G,F}$ is purely transcendental over $F$, so the final step is to find a transcendence basis of $K(T_{G,F})$ over $F$. By the proof of the No Name Lemma in \cite{Lenstra}, one can see that it all comes down to finding a basis for $V$, the $K$-vector space generated by $\lbrace x_1, \ldots, x_n \rbrace$, which is also a generating set for $K(L_G)$ being permuted by $G$.\\
+\\Let us see the above ideas in the following concrete example.
+\begin{example}	
+Suppose $G = \langle \sigma = \begin{bmatrix}
+0&1\\
+1&0
+\end{bmatrix}\rangle$, so $n = 2$. $G$ is isomorphic to the cyclic group of order two. We can take $F = \Q$ and $K = \Q(i)$ as our extension; then $\sigma(i) = -i$. Now $M = \langle e_1, e_2 \rangle_{\Z}$ is a permutation $G$-lattice, so that $K(M) = K(x_1,x_2)$. It can be verified that $$y_1 = x_1+x_2\,\,\,  \textrm{and}\,\,\, y_2 = ix_1 -ix_2 $$ are in $V^G$ and generate $V$ so $$K(M)^G = K(x_1,x_2)^G = K^G(y_1,y_2) = \Q(y_1,y_2)$$
+\end{example}
+\noindent
+\begin{example}
+Let $G \leq \mathrm{GL}(3,\Z)$ be generated by $$\sigma = \begin{bmatrix}
+0 & 0 &1\\
+1 & 0 &0\\
+0 & 1 & 0
+\end{bmatrix}\,\,\, \text{and} \,\,\, \tau = \begin{bmatrix}
+0 & 1 &0\\
+1 & 0 &0\\
+0 & 0 & 1
+\end{bmatrix}.$$
+So $G$ is isomorphic to $\mathrm{S}_3$. 
+% $$\sigma^2=\begin{bmatrix}
+%0 & 1& 0\\
+%0 & 0 & 1\\
+%1 & 0 & 0\\
+%\end{bmatrix}\,\,\, \text{and} \,\,\, \sigma\tau=\begin{bmatrix}
+%0 & 0& 1\\
+%0 & 1 & 0\\
+%1 & 0 & 0\\
+%\end{bmatrix}\,\,\, \text{and} \,\,\,\tau \sigma =\begin{bmatrix}
+%1 & 0& 0\\
+%0 & 0 & 1\\
+%0 & 1 & 0\\
+%\end{bmatrix}$$
+Now the splitting field of $x^3-2$ is $\Q(\rho, \sqrt[3]{2})$, where $\rho$ is a primitive third root of unity. The roots of $x^3-2$ are $\sqrt[3]{2},\rho \sqrt[3]{2}, \rho^2 \sqrt[3]{2}$. The Galois group of the extension is $\mathrm{S}_3$ with the action $$\sigma = \begin{cases} \sqrt[3]{2}\longrightarrow \rho \sqrt[3]{2} \\ \rho \longrightarrow \rho \end{cases}\,\,\, \,\,\,\tau = \begin{cases} \sqrt[3]{2}\longrightarrow \sqrt[3]{2} \\ \rho \longrightarrow \rho^2 \end{cases}$$
+%We can provide the following table for the action of the symmetric group on $x_i$s and the roots.
+%
+%
+%\begin{table}[H]%\label{TableS3}
+%\centering
+%
+%\begin{tabular}{c|cccccc}
+%  & 1 & $\sigma$ & $\sigma^2$ & $\tau$ & $ \sigma \tau$ & $\tau \sigma $ \\
+%  \hline
+%$x_1$ & $x_1$ & $x_3$ & $x_2$ & $x_2$ & $x_3$ & $x_1$ \\
+% $x_2$ & $x_2$ & $x_1$ & $x_3$ & $x_1$ & $x_2$ & $x_3$ \\
+% $x_3$  & $x_3$ & $x_2$ & $x_1$ & $x_3$ & $x_1$ & $x_2$ \\
+%  $\sqrt[3]{2}$ & $\sqrt[3]{2}$ & $\rho \sqrt[3]{2}$ & $\rho^2 \sqrt[3]{2}$ & $\sqrt[3]{2}$ & $\rho \sqrt[3]{2}$ & $\rho^2 \sqrt[3]{2}$ \\
+%   $ \rho \sqrt[3]{2}$ & $ \rho \sqrt[3]{2}$ & $\rho^2 \sqrt[3]{2}$ & $ \sqrt[3]{2}$ & $\rho^2 \sqrt[3]{2}$ & $\sqrt[3]{2}$ & $\rho \sqrt[3]{2}$ \\
+%   $\rho^2 \sqrt[3]{2}$ & $\rho^2 \sqrt[3]{2}$ & $\sqrt[3]{2}$ & $\rho \sqrt[3]{2}$ & $\rho \sqrt[3]{2}$ & $\rho^2 \sqrt[3]{2}$ & $\sqrt[3]{2}$ \\
+%\end{tabular}
+%\end{table}
+%\medskip
+\noindent
+Let $r_1 = \rho \sqrt[3]{2}, r_2 = \rho^2 \sqrt[3]{2}$ and $r_3 = \sqrt[3]{2}$. One can verify that for $g \in G$, $g(r_i) = r_{g(i)}$ and then we get
+ $$S= 1+\sigma +\sigma^2 +\tau +\sigma \tau +\tau \sigma $$
+ $$y_0 = S(x_1+ x_2 + x_3)= 6(x_1+x_2+x_3)$$
+ $$ y_1 = S(\rho \sqrt[3]{2} x_1) = 2\rho\sqrt[3]{2}x_1+(\sqrt[3]{2}+\rho^2 \sqrt[3]{2})x_2 + (\sqrt[3]{2}+\rho^2 \sqrt[3]{2})x_3 $$
+ $$ y_2 = S(\rho^2\sqrt[3]{2}x_2) = (\sqrt[3]{2}+\rho \sqrt[3]{2})x_1 + 2\rho^2\sqrt[3]{2}x_2 + (\sqrt[3]{2}+\rho \sqrt[3]{2})x_3$$
+ \end{example}
+\begin{remark}
+In fact the previous example can be generalized to a theorem for the special case of $G = \mathbb{S}_n$. Since later on we will state a more general theorem, the proof of the this generalization will be skipped.
+\end{remark}
+\begin{theorem}\label{specialcase}
+Suppose $G = \mathbb{S}_n$, $L_G$ is its corresponding $G$-lattice (with the action in Remark \ref{ActionSn}) and $ \mathrm{S}_n = \mathrm{Gal}(K/\Q)$ where $K$ is the splitting field of an irreducible polynomial $ f \in \Q[x]$. Assume $R = \lbrace r_1, \ldots, r_n \rbrace$ is the set of all roots of $f$ in $K$ such that for $s \in \mathrm{S}_n$, $s(r_i) = r_{s(i)}$ and $A$ be the sum of elements of $R$. The generators of the rational function field of the corresponding algebraic torus, is given explicitly by$$K(L_G)^G = K(x_1, \ldots, x_n)^G = \Q(y_1, \ldots, y_n) $$ where $$S= \sum_{\delta \in G} \delta \in \Z[G]$$
+$$y_0 = x_1+ x_2+ \cdots + x_n$$
+ $$ y_i = S(r_ix_i) \,\,\, , i = 1, \ldots, n-1.$$ 
+Moreover the coefficient of $x_k$ in $y_i$ for $1 \leq i \leq n-1$ is given by:$$  c_k = \begin{cases} (n-1)!r_i & k=i \\ (n-2)!(A-r_i) & k\neq i \end{cases}$$
+\end{theorem}
+\begin{remark}
+$L_G$ in the previous theorem, is isomorphic to the permutation $\mathrm{S}_n$ lattice $\Z[\mathrm{S}_n/\mathrm{S}_{n-1}]$. For a geometric description of the corresponding algebraic torus see Examples 18 and 19 in \cite{Voskresenskii}.
+
+\end{remark}
+\noindent
+Theorem \ref{specialcase} does not say anything about a proper subgroup of $\mathbb{S}_n$. Thus it can just be used to get explicit information about $T_{\mathbb{S}_n}$. In fact using a generic polynomial for $\mathrm{S}_n$, one can construct $K/\Q$. Now we want to prove a general result which works for any subgroup of $\mathbb{S}_n$. The other difference of this result we are talking about with Theorem \ref{specialcase} is, the different descriptions of the field extension. In Theorem \ref{specialcase} we assumed the roots of a polynomial are given, but in the general case we will assume a normal element of the field extension is given. \\
+\\
+Let $K/F$ be a finite Galois extension with finite Galois group $G$. Let $M \in M_{mn}(K)$, $m \leq n$. $G$ acts on the columns of $M$, by acting on entries, that is for $g \in G$ and $M^T_j = \left[m_{1j} \,\,\, m_{2j} \,\,\, \ldots \,\,\, m_{mj}\right]$, $g(M^T_j) = \left[g(m_{1j}) \,\,\, g(m_{2j}) \,\,\, \ldots \,\,\, g(m_{mj})\right]$. When we say that $G$ permutes the columns of $M$ transitively up to sign, we mean: There exists a homomorphism $\rho: G \longrightarrow \mathrm{S}_n$, $\rho(g) = \rho_g$ such that $g(M_i)= (-1)^{s_g}M_{\rho_g(i)}$ for some $s_g \in \lbrace 0, 1\rbrace$ for all $i = 1, \ldots n$ and for each $1 \leq i \neq j \leq n$, there exists $g \in G$ such that $\rho_g(i) = j$. Note that the action of $G$ on the columns of $M$ is not required to be faithful.
+ \begin{lemma}\label{signdet}
+Let $K/F$ be a finite Galois extension with finite Galois group $G$. Let $M \in M_{mn}(K)$, $m \leq n$ and assume that $G$ permutes the columns of $M$ transitively up to sign. Assume also that the entries of $M_1$ are $F$-linearly independent. Then the rows of $M$ are $K$-linearly independent so that the rank of $M$ over $K$ is $m$.
+\end{lemma}
+\begin{proof}
+The proof is by induction on $m$. If $m = 1$, we need only to show that the unique row of $M$ is non-zero. This is true since if $M_1 = [v_1]$, $v_1$ is $F$ linearly independent and so non-zero. Since $v_1$ is the first entry in the only row of $M$, we are done.\\
+\\
+Now assume that $m >1$. To show that the rows of $M$ are linearly independent over $K$, it is equivalent to show that the null space of $M^T$ is trivial. We will show this by contradiction. Assume that there exists $\textbf{0} \neq \textbf{x} \in N(M^T) \subseteq K^m$. So $M^T\textbf{x} = 0$. There exists some $x_k \neq 0$. Let $\textbf{y}= \frac{1}{x_k}\textbf{x} \in K^m$. Then $y_k = 1$ and $\textbf{y}\in N(M^T)$, so $M^T \textbf{y}=0$. The $i$th component is $M^T_i \textbf{y}= 0 $, $i = 1, \ldots, n$. For each $g \in G$, we get $g(M^T_i \textbf{y}) = g(M_i)^Tg(\textbf{y}) = \pm M^T_{\rho_g(i)}g(\textbf{y}) = 0$ for all $i = 1, \ldots , n$ and so $M^T_jg(\textbf{y}) = 0$ for all $j = 1, \ldots , n$, which shows that $g(\textbf{y}) \in N(M^T)$. So $g(\textbf{y}) -\textbf{y} \in N(M^T)$. By assumption, the $k$th component of $g(\textbf{y}) - \textbf{y} $ is $0$, and so $g(\hat{\textbf{y}}) - \hat{\textbf{y}}\in N(\hat{M}^T)$ where $\hat{\textbf{y}} \in K^{m-1}$ is the vector $\textbf{y}$ with the $k$th component removed and $\hat{M} \in M_{m-1,n}(K)$ is $M$ with row $k$ removed. Note that $\hat{M}$ has columns $\hat{M}_i$, $i = 1, \ldots, n$. Since $M_1$ has entries which are $F$-linearly independent, so does $\hat{M}_1$. Since the columns of $M$ are permuted transitively up to sign changes by the action of $G$, so the columns of $\hat{M}$ are similarly permuted transitively up to sign changes. Since the inductive hypothesis applies to $\hat{M}$, we see that the rows of $\hat{M}$ are $K$-linearly independent, or equivalently $N(\hat{M}^T)$ is trivial. Since $g(\hat{\textbf{y}}) -\hat{\textbf{y}} \in N(\hat{M}^T) = \lbrace 0 \rbrace$ for all $ g \in G$, we see that $\hat{\textbf{y}}\in F^{m-1}$ and so $\textbf{y} \in F^m$. But then $M^T_1 \textbf{y} = 0 $ is equivalent to $\sum^m_{k = 1}v_ky_k = 0$ which is a non-trivial $F$-dependence relation for the entries of the first column of $M$. By contradiction, the rows of $M$ must be $K$-linearly independent and so rank$(M) = m$. 
+ \end{proof} 
+\begin{remark}
+With the assumptions of Lemma \ref{signdet}, if $m= n$ then $\det{M}\neq 0.$
+\end{remark}
+
+
+\begin{theorem}
+Let $G\leq \mathbb{S}_n \leq \mathrm{GL}(n,\Z)$ and $L_G$ be the lattice corresponding to $G$ as defined in Definition \ref{Assumption}, which is a permutation lattice with the standard basis. Assume that $G$ acts transitively on $L_G$. Let $K/F$ be a finite Galois extension with Galois group $G$. Let $\alpha \in K$ be a normal element for the Galois extension $K/F$. Then $ K(x_1,\ldots , x_n)^G$ is rational over $F$ with transcendence basis $y_1, \ldots , y_n$ where $y_i = S(\alpha x_i) = \sum^n_{j=1}\sum_{g \in G_{ij}}g(\alpha)x_j$, $i = 1, \ldots , n$, where $S = \sum_{g\in G} g \in \Z[G]$ and $G_{ij} = \lbrace g \in G : g(x_i) = x_j \rbrace$. Here $G_{ij}=g_{ij}\mathrm{Stab}_{G}(x_i)$, where $g_{ij}$ is a fixed element of $G_{ij}$. 
+\end{theorem}
+\begin{proof}
+Let $V = \sum_{i=1}^n Kx_i$. Then by Speiser's Lemma \ref{Speiser'sLemma} there exists a $K$-basis for $V$ contained in $V^G$. By No Name Lemma, this $K$-basis gives a transcendence basis for $K(L_G)^G$.\\
+\\
+We show that $y_i = S(\alpha x_i) = \sum_{g \in G} g(\alpha)g(x_i) \in V^G$, for $i = 1, \ldots , n$, is a $K$-basis for $V$. Let $G_{ij}= \lbrace g \in G: g(x_i) = x_j \rbrace$. Since the action of $G$ on $L_G$ is transitive, $G_{ij}$ is non-empty for every $1 \leq i,j \leq n$. Then $$y_i = \sum^n_{j =1}\sum_{g \in G_{ij}}g(\alpha)x_j, \,\,\, i = 1, \ldots, n.$$
+Fix some $g_{ij} \in G$ with $x_j = g_{ij}(x_i)$. If $g \in G_{ij}$, then $g^{-1}_{ij}g(x_i) = x_i$ shows that $g \in g_{ij}\mathrm{Stab}_G(x_i)$. Since  $g_{ij}\mathrm{Stab}_G(x_i) \subseteq G_{ij}$, we see that $G_{ij} = g_{ij}\mathrm{Stab}_G(x_i)$ is a left coset of $\mathrm{Stab}_G(x_i)$ $G$.\\
+\\
+To show that $\lbrace y_1, \ldots, y_n \rbrace$ is a $K$-basis of $V$, we show that the matrix $M$ with $i$th row the coordinate vector for $y_i$ with respect to the $K$-basis $\lbrace x_1, \ldots x_n \rbrace$ has rows which are linearly independent over $K$. The matrix $M$ has entries $m_{ij} = \sum_{g \in G_{ij}}g(\alpha)$, $i,j = 1, \ldots, n$. We will apply Lemma \ref{signdet} to show that $M$ has $K$ linearly independent  rows and so the $y_1, \ldots, y_n$ form $K$-basis of $V$.\\
+\\
+We need to check the hypothesis of the lemma are satisfied . First, let $\rho: G \longrightarrow \mathrm{S}_n$, $\rho(g) = \rho_g$ be the group homomorphism that corresponds to the action of $G$ on the $\lbrace x_1, \ldots , x_n \rbrace$. Note that this is defined by the following rule: $\rho_g(i) = j$ if and only if $g(x_i) = x_j$ for all $1 \leq i,j\leq n$. We will show that the columns of $M$ are permuted by the action of $G$. Let $h \in G$. Note that if $g \in G_{ij}$, then $hg \in G_{i\rho_h(j)}$. So 
+$$h(m_{ij}) = \sum_{g \in G_{ij}}hg(\alpha) = \sum_{\sigma \in G_{i \rho_{h}(j)}}\sigma (\alpha) = m_{i \rho_{h}}(j)$$
+shows that $hM_j = M_{\rho_h(j)}$ for all $j = 1, \ldots, n$. So the action of $G$ permutes the columns of $M$. \\
+\\
+Secondly, the first column $M_1$ has entries 
+$$\lbrace\sum_{g \in G_{i1}}g(\alpha), i = 1, \ldots,n\rbrace.$$
+Since $\alpha$ is a normal element of the Galois extension $K/F$ with Galois group $G$, the set $\lbrace g(\alpha): g \in G \rbrace$ is $F$ linearly independent. Since $G = \sqcup^n_{i =1}G_{i1}$ is a disjoint union, the set 
+$$\lbrace \sum_{g \in G{i1}}g(\alpha), i = 1, \ldots, n \rbrace$$
+is $F$ linearly independent.\\
+\\
+So the lemma applies and we may conclude that $y_1, \ldots, y_n$ is a $K$-basis of $V$ and so is an $F$ transcendence basis of $K(L_G)^G$.
+
+\end{proof}
+
+\begin{corollary}\label{ConstructiveNoNameLemma}
+With the assumptions of previous theorem except that we now assume that $L_G$ is an arbitrary permutation $G$-lattice. Then $ K(x_1,\ldots , x_n)^G$ is rational over $F$ with transcendence basis $y_1, \ldots , y_n$ where $y_i = S(\alpha x_i) = \sum_{x_j \in Gx_i}\sum_{g \in G_{ij}}g(\alpha)x_j$, $i = 1, \ldots , n$ where $S = \sum_{g\in G} g \in \Z[G]$ and $Gx_i = \lbrace gx_i : g \in G \rbrace$  and  $G_{ij} = \lbrace g \in G : g(x_i) = x_j \rbrace$. Here $G_{ij}=g_{ij}\mathrm{Stab}_{G}(x_i)$ where $g_{ij}$ is a fixed element of $G_{ij}$. 
+\end{corollary}
+\begin{proof}
+Let $P = L_G$ and $\textbf{e}_1, \ldots , \textbf{e}_n$ be a permutation basis of $P$ corresponding to $x_1, \ldots, x_n$. Let $\textbf{e}_{j_k}: k = 1, \ldots, r$ and correspondingly $x_{j_k}: k = 1, \ldots, r$ be a complete set of $G$ orbit representatives on the $\Z$-basis for $P$ and the indeterminates $x_1, \ldots, x_n$ respectively. Then $P_k = \oplus_{ \textbf{e}_i \in G \textbf{e}_{j_{k}} } \Z \textbf{e}_i$ is a transitive permutation $G$ lattice for each $k = 1, \ldots , r$ and $K(P_k) = K(x_i : x_i \in Gx_{j_k})$.$P = \oplus^r_{k =1} P_k$ is a direct sum of transitive permutation $G$ lattices. Then $K(P)^G$ is a composite of fields $K(P)^G = \prod^r_{k =1}K(P_k)$ and so $K(P)^G$ has transcendence basis $\lbrace y_i: x_i \in Gx_{j_k}\rbrace$ over $F$ where for $x_i \in Gx_{j_k}$, we have $y_i = \sum_{x_j \in Gx_{j_k}}\sum_{g \in G_{ij}}g(\alpha)x_j$. Since $x_i \in Gx_{j_k}$, we see that $x_j \in Gx_{j_k}$ if and only if $x_j \in Gx_i$ so we may express
+$$y_i = \sum_{x_j \in Gx_i}\sum_{g \in G_{ij}}g(\alpha)x_j$$ 
+(Note also that in fact, $G_{ij}$ is non-empty if and only if $x_j \in Gx_i$, so we could even write 
+$$y_i = \sum^n_{j=1}\sum_{g \in G_{ij}}g(\alpha)x_j$$
+as before). At any rate $K(P)^G = F(y_i : x_i \in Gx_{j_k}, k = 1, \ldots,r) = F(y_1, \ldots,y_n)$ as required.
+
+\end{proof}
+\begin{example}
+Let $K$ be the splitting field of $x^4-2$ over $\Q$. Then $\mathrm{Gal}(K/\Q) \cong D_8$, $K = \Q(\sqrt[4]{2},i)$ and $\lbrace 1, \theta, \theta^2, \theta^3, i, i\theta, i\theta^2, i\theta^3\rbrace$ where  $\theta = \sqrt[4]{2}$ is a $\Q$-basis for $K$. Moreover, let $G\leq \mathrm{GL}(4,\Z)$ be generated by 
+$$
+r = \begin{bmatrix}
+0&0&0&1\\
+1&0&0&0\\
+0&1&0&0\\
+0&0&1&0
+\end{bmatrix} \,\,\,\, \text{and}\,\,\,\,
+s = \begin{bmatrix}
+1&0&0&0\\
+0&0&0&1\\
+0&0&1&0\\
+0&1&0&0
+\end{bmatrix}.
+$$
+One can verify that $G \cong D_8$. The action of $r$ and $s$ on the basis of $K$ is given by
+$$
+\begin{matrix}
+r(i) = i &r(\theta) = i \theta \\
+s(i) = -i & s(\theta) = \theta
+\end{matrix}
+$$
+Now we define $$\alpha = 1+ \theta + \theta^2 + \theta^3 +i + i\theta + i\theta^2 + i\theta^3$$
+and claim that $\alpha$ is a normal element in $K$. In fact, 
+%$$\alpha_2 =  r(\alpha) = 1- \theta - \theta^2 + \theta^3 +i + i\theta - i\theta^2 - i\theta^3$$
+%$$\alpha_3 = r^2(\alpha) = 1- \theta + \theta^2 - \theta^3 +i - i\theta + i\theta^2 - i\theta^3$$
+%$$\alpha_4 = r^3(\alpha) = 1+ \theta - \theta^2 - \theta^3 +i - i\theta - i\theta^2 + i\theta^3$$
+%$$\alpha_5 = s(\alpha) = 1+ \theta + \theta^2 + \theta^3 -i - i\theta - i\theta^2 - i\theta^3$$
+%$$\alpha_6 = rs(\alpha) = 1+ \theta - \theta^2 - \theta^3 -i + i\theta+ i\theta^2 - i\theta^3$$
+%$$\alpha_7 = r^2s(\alpha) = 1- \theta + \theta^2 - \theta^3 -i + i\theta - i\theta^2 + i\theta^3$$
+%$$\alpha_8 = r^3s(\alpha) = 1- \theta - \theta^2 + \theta^3 -i - i\theta + i\theta^2 + i\theta^3$$
+Define $y_i = S(\alpha x_i)$ where $$S = 1+r+r^2+r^3+s+sr+sr^2+sr^3 \in \Z[D_8].$$ Finally, $$K(x_1, x_2, x_3,x_4) = F(y_1,y_2,y_3,y_4).$$
+It is also worth presenting the coordinate matrix of the $y_i$'s, as a concrete example of Lemma \ref{signdet}. 
+%In order to do so, we need to know the action of $G$ on the $x_i$'s.
+%\begin{table}[H]
+%\centering
+%\begin{tabular}{l|llllllll} 
+% & $1$ & $r$ & $r^2$ & $r^3$ & $s$ & $sr$ & $sr^2$ & $sr^3$\\
+% \hline
+% $x_1$  & $x_1$ & $x_4$ & $x_3$ & $x_2$ & $x_1$ & $x_2$ & $x_3$ & $x_4$\\
+%$x_2$ & $x_2$ & $x_1$ & $x_4$ & $x_3$ & $x_4$ & $x_1$ & $x_2$ & $x_3$\\
+%$x_3$ & $x_3$ & $x_2$ & $x_1$ & $x_4$ & $x_3$ & $x_4$ & $x_1$ & $x_2$\\
+%$x_4$ & $x_4$ & $x_3$ & $x_2$ &  $x_3$& $x_2$ & $x_3$ & $x_4$ & $x_1$\\
+%\end{tabular}
+%\end{table}
+%\medskip
+\noindent
+From the above table one can easily form the matrix 
+$$
+M= \begin{bmatrix}
+(1+s)(\alpha) & (r^3+sr)(\alpha) & (r^2+sr^2)(\alpha) & (r+sr^3)(\alpha)\\
+(r+sr)(\alpha) & (1+sr^2)(\alpha) & (r^3+sr^3)(\alpha) & (r^2+s)(\alpha)\\
+(r^2+sr^2)(\alpha) & (r+sr^3)(\alpha) & (1+s)(\alpha) & (r^3+sr)(\alpha)\\
+(r^3+sr^3)(\alpha) & (r^2+s)(\alpha) & (r+sr)(\alpha) & (1+sr^^2)(\alpha)
+\end{bmatrix}.
+$$
+The action of $r$ and $s$ on the columns is
+\begin{table}[H]
+\centering
+\begin{tabular}{l|llllllll} 
+ & $r$ & $s$ \\
+ \hline
+ $M_1$  & $M_4$ & $M_1$ \\
+$M_2$ & $M_1$ & $M_4$ \\
+$M_3$ & $M_2$ & $M_2$ \\
+$M_4$ & $M_3$ & $M_3$ \\
+\end{tabular}
+\end{table}
+
+\end{example} 
+\noindent
+As has been mentioned above, we can apply Lemma \ref{signdet} in order to compute the coordinate ring of an algebraic torus. The following theorem and its constructive proof can be turned into an efficient algorithm to compute the coordinate ring of an algebraic tori.
+\begin{theorem}
+With the assumptions of Theorem \ref{ConstructiveNoNameLemma} $$K[L]^G \cong K[x^{\pm 1}_1, x^{\pm 1}_2, \ldots , x^{\pm 1}_n]^G = F[y_1, \ldots , y_n]_{x_1\cdots x_n}$$ where $ y_i$ is given by $$S = \sum_{\sigma \in G} \sigma \in \Z[G]$$
+$$y_i = S(\alpha x_i)  \,\,\,\,\, \text{for} \,\,\, 1\leq i \leq n.$$
+\end{theorem}
+\begin{proof}
+It is known that $K(L)$ is isomorphic to a Laurent polynomial ring. Also $$K[x^{\pm 1}_1, x^{\pm 1}_2, \ldots , x^{\pm 1}_n] = K[x_1, \ldots , x_n]_{x_1\cdots x_n}.$$ We are interested in $K[L]^G \cong \left( K[x^{\pm 1}_1, x^{\pm 1}_2, \ldots , x^{\pm 1}_n] \right)^G = \left(K[x_1, \ldots , x_n]_{x_1\cdots x_n} \right) ^G.$ By the proof of Theorem \ref{ConstructiveNoNameLemma} we can see $K[x_1, \ldots , x_n] = K[y_1, \ldots , y_n]$. 
+%and for each $i$, there exist $f_i(y_1,\ldots, y_n) \in K[y_1, \ldots , y_n]$ such that $x_i = f_i(y_1,\ldots, y_n)$. This implies  $$K[x_1, \ldots , x_n]_{x_1\cdots x_n} =  K[y_1, \ldots , y_n]_{h(y_1, \ldots, y_n)}$$ where $h(y_1,\cdots, y_n) = \prod_1^n f_i(y_1 , \ldots, y_n)= x_1 \cdots x_n.$ 
+On the other hand since $G$ permutes the $x_i$'s, $x_1\cdots x_n$ is invariant under the action of $G$, we can conclude $$\left( K[x_1, \ldots , x_n]_{x_1\cdots x_n}\right)^G =  \left( K[y_1, \ldots , y_n]_{x_1\cdots x_n} \right)^G$$$$ = K^G [y_1, \ldots , y_n]_{x_1\cdots x_n} =  F[y_1, \ldots , y_n]_{x_1\cdots x_n}.$$ 
+\end{proof}
+
+\section{Algebraic tori with sign permutation character lattice}
+Permutation lattices are special examples of a larger family of lattices which is called sign permutation. As we have already seen in the second chapter, a sign permutation lattice is a $G$-lattice which has a $\Z$-basis which $G$ permutes it up to sign changes. There is no known efficient algorithm which determines if a given lattice is sign permutation or not. It is also known that if $T_G$ is a corresponding algebraic torus with sign permutation character lattice, then $T_G$ is rational over the base field. \\
+\\
+Before presenting the next theorem we recall the action on a sign permutation lattice. Let $G \leq \mathrm{GL}(n,\Z)$ be a finite subgroup. $L_G$, the corresponding lattice to $G$, is the lattice generated by $\lbrace \textbf{e}_i: i = 1, \ldots , n \rbrace$ where $(\textbf{e}_i)_j = \delta_{ij}$. $G$ acts on $L_G$ by multiplication from right. For a finite Galois extension $K/F$ with $G \cong \mathrm{Gal}(K/F)$, $K(L) \cong K(x_1, \ldots, x_n)$ for algebraically independent $x_i$'s over $K$, is a $G$ field. $G$ acts as Galois group on $K$ and the action of $g \in G$ on $x_i$ is given by $$g(x_i) = \begin{cases} x_j \hspace{25pt} if \,\, g(\textbf{e}_i) = \textbf{e}_j \\
+x^{-1}_j \hspace{20pt} if \,\, g(\textbf{e}_i) = -\textbf{e}_j \end{cases}
+.$$
+
+\begin{theorem}\label{nonamesign}
+Assume $G \leq \mathrm{GL}(n,\Z)$ and the corresponding $G$-lattice, $L_G$ (as in Definition \ref{Assumption}), is sign permutation. Suppose that $G$ acts transitively (up to sign) on $L_G$. Let $K/F$ be a finite Galois extension with Galois group $G$. Let $\alpha \in K$ be a normal element for the Galois extension $K/F$. Then 
+$$K(L_G)^G = K(x_1,\ldots, x_n)^G = F(y_1, \ldots, y_{n}),$$ 
+where $S = \sum_{g \in G} g \in \Z[G]$ and $y_i = S(\alpha (1+x_i)^{-1})$ for $ i = 1, \ldots, n$.
+\end{theorem}
+\begin{proof}
+We use the change of basis $z_i = (1+x_i)^{-1} $. Now for $g \in G$, $$g(z_i) = \begin{cases} z_j  & \text{if} \,\,\, g(x_i) = x_j \\
+1-z_j & \text{if} \,\,\, g(x_i) = x_j^{-1}
+\end{cases},$$ 
+ and $K(x_1, \ldots , x_n) = K(z_1, \ldots, z_n).$\\
+ \\
+Define the $K$-vector space $V= K + \sum^n_{i=1}Kz_i$. Similar to the permutation case, we need to find a $K$-basis for $V$ which is contained in $V^G$. Let $S = \sum_{g \in G} g \in \Z[G]$ and $y_i = S(\alpha z_i)$ for $ i = 1, \ldots, n$. We want to show that $\lbrace 1, y_1, \ldots	, y_n \rbrace \subset V^G$ is a $K$-basis for $V$.\\
+\\
+For $i,j \in \lbrace 1, \ldots , n \rbrace$, $G_{ij} = \lbrace g \in G : g(z_i) = z_j \,\, \text{or} \,\, g(z_i) = 1-z_j \rbrace $. Then, by the transitivity assumption, $G_{ij}$ is non-empty for every $1 \leq i,j \leq n$. Moreover let $G^{z_j}_{ij} = \lbrace g \in G : g(z_i) = z_j \rbrace$ and $G^{1-z_j}_{ij} = \lbrace g \in G : g(z_i) = 1- z_j \rbrace$ so that $G_{ij}= G^{z_j}_{ij}\sqcup G^{1-z_j}_{ij}$.
+\\
+\\
+Let $\hat{M}$ be the coordinate matrix of $\lbrace 1, y_1, \ldots	, y_n \rbrace$ with respect to the $K$-basis $\lbrace 1, z_1, \ldots , z_n \rbrace$. We have to show that  $\det (\hat{M}) \neq 0$. \\
+\\
+By definition, 
+$$y_i = S(\alpha z_i) = \sum_{j}(\sum_{g\in G^{z_j}_{ij}}g(\alpha)z_j +\sum_{g\in G^{1-z_j}_{ij}}g(\alpha)(1-z_j)) =$$ 
+$$ \sum_{j}(\sum_{g\in G^{z_j}_{ij}}g(\alpha)z_j +\sum_{g\in G^{1-z_j}_{ij}}g(\alpha)-\sum_{g\in G^{1-z_j}_{ij}}g(\alpha)z_j) = $$ 
+$$\sum_{j}\sum_{g\in G^{1-z_j}_{ij}}g(\alpha)+ \sum_{j}(\sum_{g\in G^{z_j}_{ij}}g(\alpha)z_j -\sum_{g\in G^{1-z_j}_{ij}}g(\alpha)z_j) =$$
+$$\sum_{j}\sum_{g\in G^{1-z_j}_{ij}}g(\alpha)+ \sum_{j}(\sum_{g\in G^{z_j}_{ij}}g(\alpha) -\sum_{g\in G^{1-z_j}_{ij}}g(\alpha))z_j $$
+For $i,j \in \lbrace1, \ldots , n \rbrace$, $m_{ij} = \sum_{g\in G^{z_j}_{ij}}g(\alpha) -\sum_{g\in G^{1-z_j}_{ij}}g(\alpha)$ and $c_i = \sum_{j}\sum_{g\in G^{1-z_j}_{ij}}g(\alpha)$. The matrix $\hat{M}$ is 
+$$\hat{M} = \begin{bmatrix}
+1 & 0 & \cdots & 0\\
+c_1 & m_{11} & \cdots & m_{1n}\\
+\vdots & \vdots & \cdots & \vdots\\
+c_{n} & m_{n1} & \cdots	& m_{nn}
+\end{bmatrix}.
+$$
+Define  
+$$M = \begin{bmatrix}
+ m_{11} & \cdots & m_{1n}\\
+ \vdots & \cdots & \vdots\\
+ m_{n1} & \cdots	& m_{nn}
+\end{bmatrix}.$$
+Since $\det(\hat{M}) = \det (M)$, it is enough to show that the determinant of $M$ is non-zero. In order to do so, we will apply Lemma \ref{signdet} to show that $M$ has $K$-linearly independent rows. \\
+\\
+We need to check that the hypotheses of the lemma are satisfied. First, let $\rho: G \longrightarrow \mathrm{S}_n$, $\rho(g) = \rho_g$ be the group homomorphism that corresponds to the action of $G$ on the $\lbrace z_1, \ldots , z_n \rbrace$. Note that this is defined by the following rule: $\rho_g(i) = j$ if and only if $g(z_i) = z_j \,\,\, \text{or} \,\,\, g(z_i) = 1- z_j$ for all $1 \leq i,j\leq n$. We will show that the columns of $M$ are permuted (up to a factor $\pm 1$) by the action of $G$. \\
+\\
+Let $h \in G$. Note that if $g \in G_{ij}$, then $hg \in G_{i\rho_h(j)}$. Hence $hG_{ij} \subseteq G_{i\rho_h(j)}$. On the other hand for any $g \in G_{i\rho_h(j)}$, $h^{-1}g(z_i) = z_j$ or $h^{-1}g(z_i) = 1- z_j$ which implies $h^{-1}G_{i\rho_h(j)} \subseteq G_{ij}$ and $hG_{ij} = G_{i\rho_h(j)}$.\\
+\\
+For $h \in G$ and $i,j \in \lbrace 1, \ldots , n \rbrace$ we have
+$$h(m_{ij}) = h( \sum_{g\in G^{z_j}_{ij}}g(\alpha) -\sum_{g\in G^{1-z_j}_{ij}}g(\alpha)) =  \sum_{g\in G^{z_j}_{ij}}hg(\alpha) -\sum_{g\in G^{1-z_j}_{ij}}hg(\alpha)$$
+On the other hand if $h(z_j) = z_{\rho_h(j)}$, then
+$$m_{i\rho_h(j)} =  \sum_{g\in G^{z_{\rho_h(j)}}_{i\rho_h(j)}}g(\alpha) -\sum_{g\in G^{1-z_{\rho_h(j)}}_{i\rho_h(j)}}g(\alpha) = \sum_{g\in G^{z_j}_{ij}}hg(\alpha) -\sum_{g\in G^{1-z_{j}}_{ij}}hg(\alpha).$$
+To get the last equality we used the fact that $G^{z_{\rho_h(j)}}_{i\rho_{h}(j)}= hG^{z_j}_{ij}$ and $G^{1- z_{\rho_h(j)}}_{i\rho_h(j)}= hG^{1-z_j}_{ij}$.\\
+\\
+If  $h(z_j) = 1- z_{\rho_h(j)}$, then 
+$$m_{i\rho_h(j)} =  \sum_{g\in G^{z_{\rho_h(j)}}_{i\rho_h(j)}}g(\alpha) -\sum_{g\in G^{1-z_{\rho_h(j)}}_{i\rho_h(j)}}g(\alpha) = \sum_{g\in G^{1-z_j}_{ij}}hg(\alpha) -\sum_{g\in G^{z_j}_{ij}}hg(\alpha).$$
+Similarly for the last equality we used the fact that $G^{z_{\rho_h(j)}}_{i\rho_{h}(j)}= hG^{1-z_j}_{ij}$ and $G^{1- z_{\rho_h(j)}}_{i\rho_h(j)}= hG^{z_j}_{ij}$.\\
+\\
+In other words if $h \in G^{z_{\rho_h(j)}}_{i\rho_h(j)}$ then $h(m_{ij}) = m_{i\rho_h(j)}$ and if $h \in G^{1-z_{\rho_h(j)}}_{i\rho_h(j)}$ then $h(m_{ij}) = -m_{i\rho_h(j)}$, so $h(M_j) = \pm M_{\rho_h(j)}$.
+\\
+\\
+Secondly, the first column $M_1$ has entries 
+$$\lbrace\sum_{g \in G^{z_1}_{i1}}g(\alpha)- \sum_{g \in G^{1- z_1}_{i1}}g(\alpha), i = 1, \ldots,n\rbrace$$
+Since $\alpha$ is a normal element of the Galois extension $K/F$ with Galois group $G$, the set $\lbrace g(\alpha): g \in G \rbrace$ is $F$ linearly independent. Since $G = \sqcup^n_{i =1}G_{i1}= \sqcup^n_{i =1}(G^{z_1}_{i1} \sqcup G^{1-z_1}_{i1}) $ is a disjoint union, the set 
+$$\lbrace\sum_{g \in G^{z_1}_{i1}}g(\alpha)- \sum_{g \in G^{1- z_1}_{i1}}g(\alpha), i = 1, \ldots,n\rbrace$$
+is $F$-linearly independent.\\
+\\
+So Lemma \ref{signdet} applies and we may conclude that $1, y_1, \ldots, y_n$ is a $K$-basis of $V$. So similarly to the proof of the No Name Lemma, $y_1, \ldots, y_n$ is an $F$-transcendence basis of $K(L_G)^G$.
+
+\end{proof}
+
+\begin{corollary}
+With the assumptions of previous theorem, assume now that $L_G$ is an arbitrary sign permutation $G$-lattice. Then $ K(x_1,\ldots , x_n)^G$ is rational over $F$ with transcendence basis $y_1, \ldots , y_n$ where $y_i = S(\alpha (1+x_i)^{-1})$ where $S = \sum_{g\in G}g \in \Z[G].$ 
+\end{corollary}
+\begin{proof}
+Let $P = L_G$ and $\textbf{e}_1, \ldots , \textbf{e}_n$ be a sign permutation basis of $P$ corresponding to $x_1, \ldots, x_n$. Let $\textbf{e}_{j_k}: k = 1, \ldots, r$ and correspondingly $x_{j_k}: k = 1, \ldots, r$ be a complete set of $G$ orbit representatives (up to a factor of $\pm 1$) on the $\Z$-basis for $P$ and the indeterminates $x_1, \ldots, x_n$ respectively. Then $P_k = \oplus_{ \textbf{e}_i \in G \textbf{e}_{j_{k}} } \Z \textbf{e}_i$ is a transitive sign permutation $G$-lattice for each $k = 1, \ldots , r$ and $K(P_k) = K(x_i : x_i \in Gx_{j_k})$.$P = \oplus^r_{k =1} P_k$ is a direct sum of transitive sign permutation $G$-lattices. Then $K(P)^G$ is a composite of fields $K(P)^G = \prod^r_{k =1}K(P_k)$ and so $K(P)^G$ has transcendence basis $\lbrace y_i: x_i \in Gx_{j_k}\rbrace$ over $F$.
+
+Hence $K(P)^G = F(y_i : x_i \in Gx_{j_k}, k = 1, \ldots,r) = F(y_1, \ldots,y_n)$ as required.
+
+\end{proof}
+
+
+\begin{example}
+Assume $G\leq \mathrm{GL}(3,\Z)$ generated by $$
+\sigma = \begin{bmatrix}
+0&-1&0\\
+1&0&0\\
+0&0&-1
+\end{bmatrix}
+,$$
+so that $G \cong C_4$. Suppose $K= \Q(\rho)$, where $\rho$ is a primitive $5$-th root of unity, $K/\Q$ is Galois, with $\mathrm{Gal}(K/\Q) \cong C_4$. Let $x_1, x_2, x_3$ be algebraically independent over $K$. We want to find $K(x_1,x_2,x_3)^G$. 
+%The action of $G$ on the $x_i$s and  the $5$-th roots of unity are given by  
+%
+%\begin{table}[H]
+%\centering
+%\begin{tabular}{l|llll} 
+% & id & $\sigma$ & $\sigma^2$ & $\sigma^3$\\
+% \hline
+% $x_1$  & $x_1$ & $x_2^{-1}$ & $x_1^{-1}$ & $x_2$ \\
+%$x_2$ & $x_2$ & $x_1$ & $x_2^{-1}$ & $x_1^{-1}$ \\
+%$x_3$ & $x_3$ & $x_3^{-1}$ & $x_3$ & $x_3^{-1}$ \\
+%$\rho$ & $\rho$ & $\rho^2$ & $\rho^4$ &  $\rho^3$\\
+%$\rho^2$ & $\rho^2$ & $\rho^4$ & $\rho^3$ &  $\rho$\\
+%$\rho^3$ & $\rho^3$ & $\rho$ & $\rho^2$ &  $\rho^4$\\
+%$\rho^4$ & $\rho^4$ & $\rho^3$ & $\rho$ &  $\rho^2$\\
+%\end{tabular}
+%\end{table}
+%\medskip
+\noindent
+Define $$z_i = (1+x_i)^{-1}  \,\,\, \text{for} \, 1\leq i \leq 3. $$ 
+%the action of $G$ on the $z_i$s is given by
+%\begin{table}[H]
+%\centering
+%\begin{tabular}{l|llll} 
+% & id & $\sigma$ & $\sigma^2$ & $\sigma^3$\\
+% \hline
+% $z_1$  & $z_1$ & $1-z_2$ & $1-z_1$ & $z_2$ \\
+%$z_2$ & $z_2$ & $z_1$ & $1-z_2$ & $1-z_1$ \\
+%$z_3$ & $z_3$ & $1-z_3$ & $z_3$ & $1-z_3$ \\
+%\end{tabular}
+%\end{table}
+%\medskip
+\noindent
+To form $y_i$ we need $S = 1+\sigma + \sigma^2 +\sigma ^3$. Then 
+$$y_1 = S(\rho z_1) = \rho z_1 + \rho^2 (1-z_2) + \rho^4 (1-z_1) + \rho^3 z_2 = \rho^2+\rho^4 +(\rho - \rho^4)z_1 + (\rho^3 -\rho^2)z_2 $$ 
+$$y_2 = S(\rho z_2) = \rho z_2 + \rho^2 z_1 + \rho^4 (1-z_2) + \rho^3 (1-z_1)= (\rho^3 + \rho^4) + (\rho^2 -\rho^3)z_1+ (\rho-\rho^4)z_2$$
+$$y_3 = S(\rho z_3) = \rho z_3 + \rho^2 (1-z_3) + \rho^4 z_3 + \rho^3 (1-z_3)= (\rho^2+\rho^3) + (\rho-\rho^2-\rho^3+\rho^4)z_3.$$
+Just to compare with the proof of the Theorem \ref{nonamesign}, the matrix $\hat{M}$ is given 
+$$
+\hat{M} = \begin{bmatrix}
+1 & 0&0&0\\
+\rho^2+\rho^4 & \rho -\rho^4 & \rho^3 -\rho^2 & 0\\
+\rho^3+\rho^4 & \rho^2 -\rho^3 & \rho -\rho^4 &0 \\
+\rho^2+\rho^3 &0 &0 & \rho - \rho^2 -\rho^3+\rho^4
+\end{bmatrix}
+$$
+ and 
+ $$
+ M = \begin{bmatrix}
+ \rho -\rho^4 & \rho^3 -\rho^2 & 0\\
+ \rho^2 -\rho^3 & \rho -\rho^4 &0 \\
+0 &0 & \rho - \rho^2 -\rho^3+\rho^4
+\end{bmatrix}.
+$$
+One can verify the action of $G$ on the columns of $M$ is 
+\begin{table}[H]
+\centering
+\begin{tabular}{l|llll} 
+ & id & $\sigma$ & $\sigma^2$ & $\sigma^3$\\
+ \hline
+ $M_1$  & $M_1$ & $-M_2$ & $-M_1$ & $M_2$ \\
+$M_2$ & $M_2$ & $M_1$ & $-M_2$ & $-M_1$ \\
+$M_3$ & $M_3$ & $-M_3$ & $M_3$ & $-M_3$ \\
+\end{tabular}
+\end{table}
+\end{example}
+
+
+\bibliographystyle{plain} % (change according to your preference)
+%%%% ***   Set the bibliography file.   ***
+\bibliography{bibliography}{}
+
+\end{document}

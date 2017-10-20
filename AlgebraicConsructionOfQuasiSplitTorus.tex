@@ -1,13 +1,13 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 %%%%%%%%%%%%%%%% 
+\usepackage{fullpage}
 \usepackage{appendix}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage[byname]{smartref}
 \usepackage{hyperref} 
-\usepackage{txfonts}
 \usepackage{tocloft}
 \usepackage{tikz}
 \usepackage{xcolor}
@@ -55,46 +55,20 @@
 
 
 \bibliographystyle{amsplain}
-%\newtheorem{theorem}{Theorem}[section]
-%\newtheorem{lemma}[theorem]{Lemma}
-%\newtheorem{remark}[theorem]{Remark}
-%\newenvironment{proof}[1][Proof]{\begin{trivlist}
 
-%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
-%\newenvironment{definition}[1][Definition]{\begin{trivlist}
-%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
-%\newenvironment{example}[1][Example]{\begin{trivlist}
-%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
-%\newenvironment{remark}[1][Remark]{\begin{trivlist}
-%\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
-
-%\newcommand{\qed}{\nobreak \ifvmode \relax \else
-%      \ifdim\lastskip<1.5em \hskip-\lastskip
-%      \hskip1.5em plus0em minus0.5em \fi \nobreak
-%      \vrule height0.75em width0.5em depth0.25em\fi}
-%
-%\newtheorem{exmp}[theorem]{Example}
-%\newtheorem{exmple}[theorem]{Example}
-%\newtheorem{conj}[theorem]{Conjecture}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\makeatletter
-%\@addtoreset{theorem}{chapter}
-%\makeatother
-%%%%%%%%%%%%%%%chapter2%%%%%%%%%%%%%%%
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{proposition}[theorem]{Proposition}
-\theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{example}[theorem]{Example}
 \newtheorem*{remark}{Remark}
 \newtheorem{note}[theorem]{Note}
-%\counterwithin*{theorem}{chapter} 
 
 
+\def\todo#1{(\textbf{todo:} #1)}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 \newcommand{\Q}{\ensuremath{\mathbb{Q}}}
@@ -128,57 +102,97 @@
 
 
 \begin{abstract}
-\noindent
+
 The main purpose of this work is to give a constructive proof for the No Name Lemma. Let $G$ be a finite group, $K$ be a field, $L$ be a permutation $G$-lattice with the standard basis and $K[L]$ be the group algebra of $L$ over $K$. The No Name Lemma asserts that the invariant field of the quotient field of $K[L]$, $K(L)^G$ is a purely transcendental extension of $K^G$. In other words, there exist $y_1, \ldots , y_n$ which are algebraically independent over $K^G$ such that $K(L)^G \cong K^G(y_1, \ldots , y_n)$. For a Galois extension $K/F$ with $G = \mathrm{Gal}(K/F)$ we have introduced $\mathcal{Y}=\lbrace y_1, \ldots, y_n \rbrace \subset K[L]^G$ with desired properties. Moreover, $\mathcal{Y}$ can be used to get a concrete description of $K[L]^G$. For a sign permutation $G$-lattice $L$, a more general argument is given so that we can concretely find a transcendence basis of $K(L)^G$ over $K^G$. Since the coordinate ring (resp. the rational function field) of an algebraic torus is given as invariant ring (resp. field), $K[L]^G$ (resp. $K(L)^G$) where $L$ is the character lattice of the algebraic torus, the given proof can be used to construct the group ring or rational function field of a quasi split algebraic torus.
 \end{abstract}
 
 \section{Introduction}
-An algebraic $F$-torus $T$ is an algebraic group defined over a field $F$, which is a torus over an algebraic closure $\bar{F}$. Since a torus is a finite product of $\mathbb{G}_m$ into itself, we say $T$ splits over $\bar{F}$. In general $\bar{F}$ is not the smallest field such that $T$ splits over it. It is known that an algebraic $F$-torus $T$ splits over a finite Galois extension of $F$. If $T$ splits over $K/F$ and $G = \mathrm{Gal}(K/F)$, then $G$ is called the splitting group of $T$. For more details see \cite[Chapter 2]{Voskresenskii}.  \\
-\\
-It is known that there is a duality between the category of algebraic tori which split by $G$ and $G$-lattices. A $G$-lattice is a $\Z$-free module of finite rank together with a group homomorphism $\rho: G \longrightarrow GL(n,\Z)$. This gives an action of $G$ on the lattice by automorphisms.\\
-\\
-If $R$ is a commutative unital ring, we can extend the action on a $G$-lattice $L $ to an action on $R[L]$ (the group ring of $L$ over $R$). Now $L$ becomes a multiplicative group in $R[L]$. The multiplicative invariants are the invariant elements in $R[L]$ under the action of $G$. \\
-\\
-For a given algebraic torus $T$ with splitting group $G$, its character module $\mathrm{Hom}(T,\mathbb{G}_m)$ is a $G$-lattice. If $L$ is a $G$-lattice, then $\mathrm{Spec}(K[L]^G)$ is an algebraic torus with splitting group $G$.\\
- \\
-In light of the duality between algebraic tori and $G$-lattices, one can Identify $K[L]^G$ as the coordinate ring of an algebraic torus $T$. Similarly $K(L)^G$ is the rational function field of $T$.\\
-\\
-On the other hand having a $G$-lattice $L$ means we have  
-$$
-G \longrightarrow \mathrm{GL}(L) \cong \mathrm{GL}(n,\mathbb{Z}),
-$$
-Hence any algebraic torus corresponds to a lattice and a finite subgroup of $\mathrm{GL}(n,\Z)$. In this paper our approach is to study the corresponding groups and lattices to algebraic tori. The following assumption holds throughout the paper.
 
-\paragraph{Assumption}\label{Assumption}
-If $G$ is a finite subgroup of $\mathrm{GL}(n,\Z)$, then the corresponding lattice to $G$ which is denoted by $L_G$ is the rank $n$ lattice generated by the standard basis, i.e. $L_G = \langle \textbf{e}_i : i  = 1, \ldots, n \rangle_\Z$ where $(\textbf{e}_i)_j = \delta_{ij}$. The action of $G$ on $L_G$ is given by multiplication from right on the $\textbf{e}_i$'s. Moreover, if $G \cong \mathrm{Gal}(K/F)$ for some finite Galois extension $K/F$ then $K[L_G] \cong K[x^{\pm 1}_1, \ldots , x^{\pm 1}_n]$, that is the Laurent polynomial ring, and $K(L_G)$ which is the quotient field of $K[L_G]$ is isomorphic to $K(x_1, \ldots , x_n)$ ($x_i$'s are algebraically independent over $K$) are equipped with an action of $G$ as
-\begin{itemize}
-\item $G$ acts as Galois group on $K$ 
-\item $\forall g \in G, \,\,\, g(x_i) = \prod_{j=1}^{j=n} x_j^{a_{ij}}$  where $a_{ij}$'s are given by $g(e_i) = \sum_{j=1}^{j=n} a_{ij}e_j$.
-\end{itemize}
-Also $T_G$ is the corresponding algebraic torus to $L_G$ i.e. $T_G$ is an algebraic torus defined on $F$ which splits over $K$, with character lattice $L_G$. 
-\\
-\\
+
+
+An algebraic $F$-torus $T$ is an algebraic group defined over a field
+$F$ which {\em splits} over an algebraic closure $\bar F$ of $F$, that
+is, which is isomorphic to a torus (a finite product of copies of the
+multiplicative group $\mathbb{G}_m$) over $\bar{F}$. In general,
+$\bar{F}$ is not the smallest field over which $T$ splits: it is known
+that an algebraic $F$-torus $T$ splits over a finite Galois extension
+of $F$. There is a unique minimal such extension, say $K$; if $G =
+\mathrm{Gal}(K/F)$, then $G$ is called the splitting group of $T$. For
+more details, see~\cite[Chapter 2]{Voskresenskii}.
+
+
+A $G$-lattice $L$ is a free $\Z$-module of finite rank, together with
+a group homomorphism $\rho: G \longrightarrow {\rm GL}(n,\Z)$; this
+gives an action of $G$ on the lattice $L$ by automorphisms.  If $K$ is
+a field, the group algebra $K[L]$ of $L$ over $K$ is isomorphic to the
+$K$-algebra of Laurent polynomials $K[x_1^{\pm 1},\dots,x_n^{\pm 1}]$,
+for some indeterminates $x_1,\dots,x_n$.  If $K$ is equipped with an
+action of $G$ (that is, a $G$-field), we can extend the action of $G$
+on lattice $L$ to an action on $K[L]$; the ring $K[L]^G$ of {\em
+  multiplicative invariants} consists of those elements in $K[L]$
+invariant under the action of $G$. The fraction field $K(L)$ of $K[L]$
+is isomorphic to $K(x_1,\dots,x_n)$, and the subfield of
+invariants under the action of $G$ is written $K(L)^G$.
+
+It is known that there is a duality between the category of algebraic
+tori with splitting group $G$ and $G$-lattices. For a given algebraic
+torus $T$ with splitting group $G$, its character module
+$\mathrm{Hom}(T,\mathbb{G}_m)$ is a $G$-lattice. Conversely, if $L$ is
+a $G$-lattice, with $G={\rm Gal}(K/F)$ for some finite Galois
+extension $K/F$, then $T=\mathrm{Spec}(K[L]^G)$ is an algebraic
+$F$-torus with splitting group $G$, with coordinate ring $K[L]^G$ and
+function field $K(L)^G$.
+
+A $G$-lattice comes with the datum of a finite subgroup of
+$\mathrm{GL}(n,\Z)$. In this paper, we start from such a subgroup and
+describe the field of functions of an associated torus.
+
+
+\begin{definition}\label{Assumption}
+  Let $G$ be a finite subgroup of $\mathrm{GL}(n,\Z)$, and suppose
+  that $G \cong \mathrm{Gal}(K/F)$ for some finite Galois extension
+  $K/F$.
+
+  The $G$-lattice $L_G$ corresponding to $G$ is the rank $n$ lattice
+  generated by the standard basis $ \langle \textbf{e}_i : i = 1,
+  \ldots, n \rangle_\Z$, where $(\textbf{e}_i)_j = \delta_{ij}$ (seen
+  as row vectors), together with the action of $G$ given by
+  right-multiplication on the $\textbf{e}_i$'s.  Also $T_G$ is the
+  corresponding algebraic torus to $L_G$; thus, $T_G$ is an algebraic
+  $F$-torus which splits over $K$, with character lattice $L_G$.
+
+  Then $K[x_1^{\pm 1}, \ldots , x_n^{\pm 1}]$ is equipped with the
+  action of $G$ given by
+  \begin{itemize}
+  \item $G$ acts as Galois group on $K$
+  \item $\forall g \in G, \,\,\, g(x_i) = \prod_{j=1}^{j=n}
+    x_j^{a_{i,j}}$ where $a_{i,j}$'s are given by $g(\textbf{e}_i) =
+    \sum_{j=1}^{j=n} a_{i,j}\textbf{e}_j$.
+  \end{itemize}
+\end{definition}
+
+
 A $G$-lattice $L$, is called permutation (resp. sign permutation) if it has a $\Z$-basis which is permuted (resp. up to sign changes) by $G$. The following lemma which will be proved later on, characterizes permutation $G$-lattices. 
-\paragraph{Lemma}
-a $G$-lattice of rank $n$ is a permutation lattice if and only if $G$ is conjugate to a subgroup of $\mathbb{S}_n$ where $$\mathbb{S}_n = \langle  \sigma = \left[ \begin{array}{c|c}
-0 & 1\\
-\hline
-I_{n-1} &0
-\end{array} \right] 
-, \,
-\tau = \left[ \begin{array}{c|c}
-\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array} & 0\\
-\hline
-0 & I_{n-2}
-\end{array}
-\right] \rangle.$$
-Among algebraic tori there are families with permutation or sign permutation character lattices. An algebraic torus with a permutation character lattice is called quasi split. These two families are known to be rational. Although computationally we do not have an efficient algorithm in hand to decide whether a given lattice is permutation, the structure of a quasi split torus is well understood.\\
-\\
-The No Name Lemma asserts that if $L$ is a permutation $G$-lattice and $K$ is a $G$-field, then $K(L)^G$ is rational over $K^G$ (see \cite{Lenstra}, \cite{Domokos}). This specifically implies that a quasi split torus is rational. Although the No Name Lemma implies rationality of a quasi split torus, it does not give us concrete description of a transcendence basis of the rational function field. Providing a constructive proof for the No Name Lemma is another problem which is solved here. The proof is based on a generalization of the Moore determinant \cite[Section 1.3]{Goss}. More precisely we will prove a generalized version of the No Name Lemma.\\
-\\
+
+
+Among algebraic tori there are families with permutation or sign
+permutation character lattices. An algebraic torus with a permutation
+character lattice is called quasi split. These two families are known
+to be rational. Although computationally we do not have an efficient
+algorithm in hand to decide whether a given lattice is permutation,
+the structure of a quasi split torus is well understood.
+
+The No Name Lemma asserts that if $L$ is a permutation $G$-lattice and
+$K$ is a $G$-field, then $K(L)^G$ is rational over $K^G$ (see
+\cite{Lenstra}, \cite{Domokos}). This specifically implies that a
+quasi split torus is rational. Although the No Name Lemma implies
+rationality of a quasi split torus, it does not give us concrete
+description of a transcendence basis of the rational function
+field. Providing a constructive proof for the No Name Lemma is another
+problem which is solved here. The proof is based on a generalization
+of the Moore determinant \cite[Section 1.3]{Goss}. More precisely we
+will prove a generalized version of the No Name Lemma.
+
 \paragraph{Theorem}
 Assume $G \leq \mathrm{GL}(n,\Z)$ and the corresponding $G$-lattice, $L_G$ (as in Definition \ref{Assumption}), is sign permutation. Suppose that $G$ acts transitively (up to sign) on $L_G$. Let $K/F$ be a finite Galois extension with Galois group $G$. Let $\alpha \in K$ be a normal element for the Galois extension $K/F$. Then 
 $$K(L_G)^G = K(x_1,\ldots, x_n)^G = F(y_1, \ldots, y_{n}),$$ 
@@ -186,151 +200,123 @@ where $S = \sum_{g \in G} g \in \Z[G]$ and $y_i = S(\alpha (1+x_i)^{-1})$ for $ 
 \\
 \\
 An algebraic torus is defined without using an ideal of a polynomial ring. Even the function field (resp. coordinate ring) of a general algebraic torus is defined as the field of invariants of a field (resp. ring of) under the action of some finite group. Considering the fact that these invariants are multiplicative, it is not easy to find these invariants in general. To the best of the authors knowledge, there are only a few algorithms for finding the multiplicative invariants (see \cite{Kemper} and \cite{Lorenz}). The results presented in this chapter allow us to find multiplicative invariants in the particular cases where the lattice is permutation or sign permutation.\\
-\\
+
+We have already seen the duality between algebraic tori and lattices. For a given $G \leq \mathrm{GL}(n,\Z)$ although we know $K(T_{G,F}) \cong K(x_1, \ldots, x_n)^G$ and $K[T_{G,F}] \cong K[x^{\pm 1}_1, \ldots , x^{\pm 1}_n]^G$ , it is given as a field (or ring) of multiplicative invariants, and we do not have a generating set for them. We are interested in finding the multiplicative invariants in a concrete way.\\
+There are many algorithms for finding the invariant rings for polynomial invariants. We invite the reader to consult \cite{Kemper2} and \cite{Sturmfels}. However, for multiplicative invariants the algorithmic side is not explored to some extent \cite{Kemper}, \cite{Renault}.\\
+
 We present results concerning the construction of algebraic function field and coordinate ring of quasi split tori. The first section is devoted to a brief discussion of the needed material. In the second section, a constructive proof of the No Name Lemma is presented. This can be used to find an explicit transcendence basis of the rational function field of a quasi split torus. The final section presents a similar result for finding the function field of an algebraic torus with sign permutation lattice.
 
 \section{Preliminaries}
-In this section, we briefly take a look at our main ingredients to present the results in the later section. In order to give a concrete proof of the No Name Lemma, we will use a permutation basis of a given permutation lattice. Hence the problem of finding a permutation basis is discussed. A normal element of a given Galois extension is the other thing we will need. A brief discussion on normal element and normal basis of Galois extensions are provided.\\
-\\
-%We have already seen that for a given finite subgroup of $G \leq \mathrm{GL}(n,\Z)$, the rational function field and  the coordinate ring of $T_{G,F}$ are respectively given by $K(x_1, \ldots, x_n)^G$ and $K[x^{\pm 1}_1, \ldots, x^{\pm 1}_n]^G$ (see Definition \ref{Assumption}).\\
-%\\
-In general for a given $G$-lattice, we do not have a method to determine if the lattice is permutation or not. Let us take a closer look at the structure of permutation lattices to get some ideas.  \\
-\\The following lemma characterizes permutation lattices. Let $\mathbb{S}_n$ be the group generated by $$
-\sigma = \left[ \begin{array}{c|c}
-0 & 1\\
-\hline
-I_{n-1} &0
-\end{array} \right] \,\,\,
-\text{and} \,\,\,
-\tau = \left[ \begin{array}{c|c}
-\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array} & 0\\
-\hline
-0 & I_{n-2}
-\end{array}
-\right].$$ One can see $\mathbb{S}_n$ is the group of all permutation matrices.
+
+In this section, we briefly take a look at our main ingredients to
+present the results in the later section. In order to give a concrete
+proof of the No Name Lemma, we will use a permutation basis of a given
+permutation lattice. Hence the problem of finding a permutation basis
+is discussed. A normal element of a given Galois extension is the
+other thing we will need. A brief discussion on normal element and
+normal basis of Galois extensions are provided.
+
+In general for a given $G$-lattice, we do not have a method to
+determine if the lattice is permutation or not.  The following lemma
+characterizes permutation lattices.
 \begin{lemma}\label{PermLatChar}
-Let $ G \leq \mathrm{GL}(n,\mathbb{Z})$ be finite. The $G$-lattice corresponding to $G$ is a permutation lattice if and only if $G$ is conjugate to one of the subgroups of $\mathbb{S}_n$.
+  Let $ G \leq \mathrm{GL}(n,\mathbb{Z})$ be finite. The $G$-lattice
+  corresponding to $G$ is a permutation lattice if and only if $G$ is
+  conjugate to a group of permutation matrices.
 \end{lemma} 
 \begin{proof}
-$(\Rightarrow)$ Assume that $G = \langle \sigma_i: 1\leq i \leq m\rangle$ and that $L_G$ has the standard basis $\lbrace e_1, \ldots , e_n \rbrace$. If $L_G$ is a permutation lattice, then there exists a basis $W=\lbrace \alpha_1 , \cdots, \alpha_n \rbrace \subset L_G$ such that $ G$ acts as permutation on   $W$ i.e. for any $\sigma \in G$ and $1 \leq i \leq n$
+$(\Leftarrow)$ is obvious.
+For $(\Rightarrow)$, assume that $G = \langle \sigma_i: 1\leq i \leq m\rangle$ and that $L_G$ has the standard basis $\lbrace e_1, \ldots , e_n \rbrace$. If $L_G$ is a permutation lattice, then there exists a basis $W=\lbrace \alpha_1 , \cdots, \alpha_n \rbrace \subset L_G$ such that $ G$ acts as permutation on   $W$ i.e. for any $\sigma \in G$ and $1 \leq i \leq n$
 \begin{displaymath}\label{sigma}
 \alpha_i \cdot \sigma = \alpha_{s_i} 
 \end{displaymath}
  for some $s_i \in  \lbrace 1, \ldots, n \rbrace$. By defining $T = \begin{bmatrix}
 \alpha_1 & \cdots & \alpha_n
 \end{bmatrix}^t $ , the above equations imply 
- 
-$$   T\sigma = P_{\sigma} T \,\, \text{and thus} \,\, T\sigma T^{-1} = P_{\sigma}$$ where $P_{\sigma}$ is a permutation matrix of size $n$. Note that since $W$ forms a basis for $L_G$, $T$ is invertible. The group $P$ generated by$\lbrace P_{\sigma}: \sigma \in \lbrace \sigma_1, \ldots, \sigma_m \rbrace \rbrace$ is clearly a subgroup of $\mathbb{S}_n$ and $TGT^{-1}= P$, which means that $G$ and $P$ are conjugate in $\mathrm{GL}(n,\Z)$.\\
-$(\Leftarrow)$ is obvious.
+$$   T\sigma = P_{\sigma} T \,\, \text{and thus} \,\, T\sigma T^{-1} = P_{\sigma}$$ where $P_{\sigma}$ is a permutation matrix of size $n$. Note that since $W$ forms a basis for $L_G$, $T$ is invertible. The group $P$ generated by$\lbrace P_{\sigma}: \sigma \in \lbrace \sigma_1, \ldots, \sigma_m \rbrace \rbrace$ is clearly a subgroup of $\mathbb{S}_n$ and $TGT^{-1}= P$, which means that $G$ and $P$ are conjugate in $\mathrm{GL}(n,\Z)$. 
 \end{proof}
-\noindent
-The proof of the previous lemma is simply saying that if a lattice is a permutation lattice then we can find an invertible matrix (change of basis matrix) such that $TGT^{-1}$ is a subgroup of $\mathrm{GL}(n,\Z)$ generated by permutation matrices.\\
-\\
-However, to the best of the authors knowledge there is no known general algorithm to determine if a given lattice is permutation in general. \\
-\\
-%For a given group $G\leq \mathrm{GL}(n,\Z)$ with $m$ generators one can always form a matrix $T$ with $n^2$ indeterminates $x_{11}, \ldots , x_{nn}$ as entries, then form 
-%$$
-%\begin{bmatrix}
-%x_{11} & x_{12} & \cdots & x_{1n}\\
-%x_{21} & x_{22} & \cdots & x_{2n}\\
-%\vdots & \vdots & \cdots & \vdots\\
-%x_{n1} & x_{n2} & \cdots & x_{nn}\\
-%\end{bmatrix}\sigma = P_{\sigma}\begin{bmatrix}
-%x_{11} & x_{12} & \cdots & x_{1n}\\
-%x_{21} & x_{22} & \cdots & x_{2n}\\
-%\vdots & \vdots & \cdots & \vdots\\
-%x_{n1} & x_{n2} & \cdots & x_{nn}\\
-%\end{bmatrix}
-%$$
-%for $\sigma$ a generator of $G$ and $P_{\sigma}$ the corresponding permutation matrix. This gives $n^2$ equations in $n^2$ variables. Since we can do the same for any generator of $G$, one can form a linear system of  $m\times n^2$ equations with $n^2$ variables. We can always solve the system over rationals. If the system has no solution over $\Q$, it has no solutions over $\Z$ as well. However, there are two difficulties in this approach. The first problem is the choice of the permutation matrices $P_{\sigma}$, as it is not obvious how to choose appropriate candidates. The second problem happens when the system has a solution set over $\Q$ of positive dimension. In this case, we need to find a solution over the integers in such a way that $T$ has determinant in $\lbrace \pm 1 \rbrace$. Finding a solution of this type is a hard problem to which we offer no solution.\\
-%\\
-Since we are not looking for a solution to solve the mentioned decision problem for lattices, we assume our groups are subgroups of $\mathbb{S}_n$. This assures us that the lattice we are working with is a permutation lattice with the standard basis. We also note that since conjugate subgroups of $\mathrm{GL}(n,\Z)$ correspond to isomorphic lattices, with our assumption we are discussing isomorphism classes of permutation lattices. We also know that isomorphic lattices correspond to isomorphic algebraic tori.
-%
-%
-%Suppose $K/F$ is a finite Galois extension with $G = \mathrm{Gal}(K/F)$. The purpose of this section is to provide some information about a specific type of basis for $K$ as a $F$-vector space. We are interested in a basis on which the action of $G$ permutes the elements, it will play a central role in the results of this chapter.
-\begin{definition}
-Assume $K/F$ is a finite Galois extension and $G = \lbrace \sigma_1, \ldots , \sigma_n \rbrace$ is the Galois group of $K/F$. An element $\alpha \in K$ is called normal if $B = \lbrace \sigma_1(\alpha), \ldots , \sigma_n(\alpha) \rbrace$ is an $F$-basis for $K$, and we call $B$ a normal basis of $K$ over $F$.
-\end{definition} 
-\noindent
-The existence of a normal basis for a finite Galois extension was proven in \cite{NoetherNormalBasis} and \cite{Deuring}.
-\begin{theorem}\cite[Theorem 6.13.1]{Lang}\label{NormalBasisTheorem} (Normal Basis Theorem)
-Let $K/F$ be a finite Galois extension of degree $n$. Let $\sigma_1, \ldots , \sigma_n$ be the elements of the Galois group $G$. Then there exists an element $\alpha \in K$ such that $\sigma_1(\alpha), \ldots , \sigma_n(\alpha)$ form a basis of $K$ over $F$.
-\end{theorem}
-%\begin{remark}
-%It is worth mentioning that Lenstra generalized normal basis theorem to infinite Galois extensions \cite{LenstraInfiniteGalois}. Moreover, in \cite{LenstraPrimitive} the authors proved that any finite extension of a finite field has a normal basis consisting of primitive roots.
-%\end{remark}
-%\noindent
-%There are different proofs for the normal basis theorem. The following argument, which is part of one of the proofs,  gives a concrete way to find a normal basis for a given finite Galois extension.\\
-%\\
-%Assume $K/F$ is a finite Galois extension and $G = \lbrace \sigma_1, \ldots , \sigma_n \rbrace$ is the Galois group of $K/F$. We are looking for an element $x \in K$ such that, if  $\sum_{i = 1}^n c_i \sigma_i(x)= 0$ (for $c_i \in F$), then $c_i = 0 $ for each $i$. Let $\lbrace \beta_1 , \ldots , \beta_n \rbrace$ be an $F$-basis for $K$. For indeterminates $x_1, \ldots, x_n$ we can write $x = x_1\beta_1 + \cdots + x_n \beta_n$.\\
-%\\
-%For $ \sigma \in \lbrace \sigma_1, \ldots , \sigma_n \rbrace$, if $\sum_{i = 1}^n c_i \sigma_i(x)= 0$, then $\sigma^{-1}(\sum_{i = 1}^n c_i \sigma_i(x)) = \sum_{i = 1}^n c_i \sigma^{-1}\sigma_i(x)= 0$. Thus we have 
-%$$
-%\begin{bmatrix}
-%\sigma_1^{-1}\sigma_1(x) & \sigma_1^{-1}\sigma_2(x) & \cdots & \sigma_1^{-1}\sigma_n(x)\\
-% \sigma_2^{-1}\sigma_1(x) & \sigma_2^{-1}\sigma_2(x) & \cdots & \sigma_2^{-1}\sigma_n(x)\\
-% \vdots & \vdots & \cdots & \vdots\\
-% \sigma_n^{-1}\sigma_1(x) & \sigma_n^{-1}\sigma_2(x) & \cdots & \sigma_n^{-1}\sigma_n(x)\\
-%\end{bmatrix} 
-%\begin{bmatrix}
-%c_1\\
-%c_2\\
-%\vdots\\
-%c_n
-%\end{bmatrix}= 0
-%$$
-%So it is enough to show that the above matrix, we call it $A(x)$, is invertible for some $x$. Replacing $x$
-% by $ x_1\beta_1 + \cdots + x_n \beta_n$ we get 
-% $$A(x) = A(x_1, \ldots , x_n) = \begin{bmatrix}
-%\sigma_1^{-1}\sigma_1(\sum_{i=1}^nx_i\beta_i) & \sigma_1^{-1}\sigma_2(\sum_{i=1}^nx_i\beta_i) & \cdots & \sigma_1^{-1}\sigma_n(\sum_{i=1}^nx_i\beta_i)\\
-% \sigma_2^{-1}\sigma_1(\sum_{i=1}^nx_i\beta_i) & \sigma_2^{-1}\sigma_2(\sum_{i=1}^nx_i\beta_i) & \cdots & \sigma_2^{-1}\sigma_n(\sum_{i=1}^nx_i\beta_i)\\
-% \vdots & \vdots & \cdots & \vdots\\
-% \sigma_n^{-1}\sigma_1(\sum_{i=1}^nx_i\beta_i) & \sigma_n^{-1}\sigma_2(\sum_{i=1}^nx_i\beta_i) & \cdots & \sigma_n^{-1}\sigma_n(\sum_{i=1}^nx_i\beta_i)\\
-%\end{bmatrix} $$
-%and $\det (A) \in K[x_1,\ldots , x_n]$. We just need to find $(a_1, \ldots , a_n) \in F^n$ so that $\det(A)(a_1, \ldots , a_n) \neq 0$. It is possible to show the existance of such element in $F^n$. Indeed this gives a complete proof of the theorem. Since we just wanted to explain a way to find a normal element, we skip the proof of existence (see \cite[Theorem 6.13.1]{Lang}).
-%\\
-%\\
-%The above argument gives a randomized method to find a normal element for a given extension by choosing $x_1, \ldots , x_n$ at random. 
-\noindent
-There are algorithms for finding a normal element. For an algorithm in characteristic zero see \cite{Girstmair}, in positive characteristic, see \cite{Giesbrecht} , \cite{Poli}. 
 
-\section{Construction of Quasi Split Tori}
-We have already seen the duality between algebraic tori and lattices. For a given $G \leq \mathrm{GL}(n,\Z)$ although we know $K(T_{G,F}) \cong K(x_1, \ldots, x_n)^G$ and $K[T_{G,F}] \cong K[x^{\pm 1}_1, \ldots , x^{\pm 1}_n]^G$ , it is given as a field (or ring) of multiplicative invariants, and we do not have a generating set for them. We are interested in finding the multiplicative invariants in a concrete way.\\
-\\
-There are many algorithms for finding the invariant rings for polynomial invariants. We invite the reader to consult \cite{Kemper2} and \cite{Sturmfels}. However, for multiplicative invariants the algorithmic side is not explored to some extent \cite{Kemper}, \cite{Renault}.\\
-\\ 
-In this section, we focus on a specific family of algebraic tori, namely quasi split tori. For this family we present machinery to construct rational function fields and coordinate rings. The lattice corresponding to a quasi split algebraic torus is a permutation lattice. The rationality of this kind of algebraic tori has been known for a long time. Since a quasi-split torus of dimension $d$ is rational over the base field, its function field is generated as a field by $d$ elements which are algebraically independent over the base field.\\
-\\
-When $L_G$ is a permutation lattice, the No Name Lemma, $K(T_{G,F})$ is a rational extension of $F$, i.e. there exist $y_1,\ldots,y_n \in K[x_1, \ldots , x_n]$ such that  $$K(x_1, \ldots, x_n)^G = F(y_1,\ldots,y_n)$$ and $y_1, \ldots, y_n$ are algebraically independent over $F$.\\
-\\The existence of $y_i$'s is related to the existence of a permutation basis for $L_G$. Hence having such a basis, enables us to construct the transcendence basis we are looking for.\\
-\\
-From the discussion of the previous section, we know that for a given permutation $G$-lattice, it is not easy to find a basis on which $G$ acts as a permutation. Hence, we will assume that $G$ is given as a subgroup of the group $\mathbb{S}_n$ generated by 
-$$
-\left[ \begin{array}{c|c}
-0 & 1\\
-\hline
-I_n &0
-\end{array} \right] \,\,\,
-\text{and} \,\,\,
-\left[ \begin{array}{c|c}
-\begin{array}{cc}
-0 & 1\\
-1 & 0
-\end{array} & 0\\
-\hline
-0 & I_{n-2}
-\end{array}
-\right]$$
-so that the corresponding $G$-lattice $L$ is a permutation (by Lemma \ref{PermLatChar}).  We note that conjugate subgroups of $\mathrm{GL}(n, \Z)$ correspond to isomorphic algebraic tori.
+
+Since we are not looking for a solution to solve the mentioned
+decision problem for lattices, we assume our groups are subgroups of
+$\mathbb{S}_n$. This assures us that the lattice we are working with
+is a permutation lattice with the standard basis. We also note that
+since conjugate subgroups of $\mathrm{GL}(n,\Z)$ correspond to
+isomorphic lattices, with our assumption we are discussing isomorphism
+classes of permutation lattices. We also know that isomorphic lattices
+correspond to isomorphic algebraic tori.
+
+\begin{definition}
+  Assume $K/F$ is a finite Galois extension and $G = \lbrace \sigma_1,
+  \ldots , \sigma_n \rbrace$ is the Galois group of $K/F$. An element
+  $\alpha \in K$ is called normal if $B = \lbrace \sigma_1(\alpha),
+  \ldots , \sigma_n(\alpha) \rbrace$ is an $F$-basis for $K$, and we
+  call $B$ a normal basis of $K$ over $F$.
+\end{definition} 
+
+The existence of a normal basis for a finite Galois extension was
+proven in \cite{NoetherNormalBasis} and \cite{Deuring}; see for
+instance~\cite[Theorem 6.13.1]{Lang} for a more recent treatment.
+There are algorithms for finding a normal element. For an algorithm in
+characteristic zero see \cite{Girstmair}; in positive characteristic,
+see \cite{Giesbrecht,Poli}.
+
+\section{The case of the whole symmetric group}
+ 
+% In this section, we focus on a specific family of algebraic tori,
+% namely quasi split tori. For this family we present machinery to
+% construct rational function fields and coordinate rings. The lattice
+% corresponding to a quasi split algebraic torus is a permutation
+% lattice. The rationality of this kind of algebraic tori has been known
+% for a long time. Since a quasi-split torus of dimension $d$ is
+% rational over the base field, its function field is generated as a
+% field by $d$ elements which are algebraically independent over the
+% base field.
+
+When $L_G$ is a permutation lattice, the No Name Lemma, $K(T_{G,F})$
+is a rational extension of $F$, i.e. there exist $y_1,\ldots,y_n \in
+K[x_1, \ldots , x_n]$ such that $$K(x_1, \ldots, x_n)^G =
+F(y_1,\ldots,y_n)$$ and $y_1, \ldots, y_n$ are algebraically
+independent over $F$.  The existence of $y_i$'s is related to the
+existence of a permutation basis for $L_G$. Hence having such a basis,
+enables us to construct the transcendence basis we are looking for.
+
+% From the discussion of the previous section, we know that for a given
+% permutation $G$-lattice, it is not easy to find a basis on which $G$
+% acts as a permutation. Hence, we will assume that $G$ is given as a
+% subgroup of the group $\mathbb{S}_n$ generated by
+% $$
+% \left[ \begin{array}{c|c}
+% 0 & 1\\
+% \hline
+% I_n &0
+% \end{array} \right] \,\,\,
+% \text{and} \,\,\,
+% \left[ \begin{array}{c|c}
+% \begin{array}{cc}
+% 0 & 1\\
+% 1 & 0
+% \end{array} & 0\\
+% \hline
+% 0 & I_{n-2}
+% \end{array}
+% \right]$$
+% so that the corresponding $G$-lattice $L$ is a permutation (by Lemma \ref{PermLatChar}).  
+
 \begin{remark}\label{ActionSn}
-Assume $\mathrm{S}_n$ is the symmetric group generated by $\sigma = (1 \,\, 2 \,\, \ldots \,\, n)$ and $\tau = (1 \,\, 2)$. Now the above generators of $\mathbb{S}_n$ can be seen as the images of $I_n$, under the action of $\sigma$ and $\tau$ on its rows which gives an isomorphism between $\mathrm{S}_n$ and $\mathbb{S}_n$. This shows that the action of $\delta \in \mathrm{S}_n$ on $e_i$, an element of the standard basis of $L_{\mathbb{S}_n}$, is given by $\delta(e_i) = e_{\delta^{-1}(i)}$ and similarly if we are dealing with $K(x_1, \ldots , x_n ) \cong K(L_{\mathbb{S}_n})$, we have $\delta(x_i) = x_{\delta^{-1}(i)}$ by Definition \ref{Assumption}.
+  Assume $\mathrm{S}_n$ is the symmetric group generated by $\sigma =
+  (1 \,\, 2 \,\, \ldots \,\, n)$ and $\tau = (1 \,\, 2)$. Now the
+  above generators of $\mathbb{S}_n$ can be seen as the images of
+  $I_n$, under the action of $\sigma$ and $\tau$ on its rows which
+  gives an isomorphism between $\mathrm{S}_n$ and $\mathbb{S}_n$. This
+  shows that the action of $\delta \in \mathrm{S}_n$ on $e_i$, an
+  element of the standard basis of $L_{\mathbb{S}_n}$, is given by
+  $\delta(e_i) = e_{\delta^{-1}(i)}$ and similarly if we are dealing
+  with $K(x_1, \ldots , x_n ) \cong K(L_{\mathbb{S}_n})$, we have
+  $\delta(x_i) = x_{\delta^{-1}(i)}$ by Definition \ref{Assumption}.
 \end{remark}
-\noindent
-We need one more component to construct $T_{G,F}$. The last component is a finite Galois extension of a field $F$. In other words one needs to solve the inverse Galois problem for the pair $(G, F)$ since it is not the purpose of this thesis, we assume $K/F$ is a finite Galois extension and the action of $G$ on a basis of $K$ over $F$ is given.\\
-\\By the No Name Lemma, we know that the rational function field of $T_{G,F}$ is purely transcendental over $F$, so the final step is to find a transcendence basis of $K(T_{G,F})$ over $F$. By the proof of the No Name Lemma in \cite{Lenstra}, one can see that it all comes down to finding a basis for $V$, the $K$-vector space generated by $\lbrace x_1, \ldots, x_n \rbrace$, which is also a generating set for $K(L_G)$ being permuted by $G$.\\
+
+By the No Name Lemma, we know that the rational function field of $T_{G,F}$ is purely transcendental over $F$, so the final step is to find a transcendence basis of $K(T_{G,F})$ over $F$. By the proof of the No Name Lemma in \cite{Lenstra}, one can see that it all comes down to finding a basis for $V$, the $K$-vector space generated by $\lbrace x_1, \ldots, x_n \rbrace$, which is also a generating set for $K(L_G)$ being permuted by $G$.\\
 \\Let us see the above ideas in the following concrete example.
 \begin{example}	
 Suppose $G = \langle \sigma = \begin{bmatrix}
@@ -338,7 +324,7 @@ Suppose $G = \langle \sigma = \begin{bmatrix}
 1&0
 \end{bmatrix}\rangle$, so $n = 2$. $G$ is isomorphic to the cyclic group of order two. We can take $F = \Q$ and $K = \Q(i)$ as our extension; then $\sigma(i) = -i$. Now $M = \langle e_1, e_2 \rangle_{\Z}$ is a permutation $G$-lattice, so that $K(M) = K(x_1,x_2)$. It can be verified that $$y_1 = x_1+x_2\,\,\,  \textrm{and}\,\,\, y_2 = ix_1 -ix_2 $$ are in $V^G$ and generate $V$ so $$K(M)^G = K(x_1,x_2)^G = K^G(y_1,y_2) = \Q(y_1,y_2)$$
 \end{example}
-\noindent
+
 \begin{example}
 Let $G \leq \mathrm{GL}(3,\Z)$ be generated by $$\sigma = \begin{bmatrix}
 0 & 0 &1\\
@@ -382,7 +368,7 @@ Now the splitting field of $x^3-2$ is $\Q(\rho, \sqrt[3]{2})$, where $\rho$ is a
 %\end{tabular}
 %\end{table}
 %\medskip
-\noindent
+
 Let $r_1 = \rho \sqrt[3]{2}, r_2 = \rho^2 \sqrt[3]{2}$ and $r_3 = \sqrt[3]{2}$. One can verify that for $g \in G$, $g(r_i) = r_{g(i)}$ and then we get
  $$S= 1+\sigma +\sigma^2 +\tau +\sigma \tau +\tau \sigma $$
  $$y_0 = S(x_1+ x_2 + x_3)= 6(x_1+x_2+x_3)$$
@@ -402,7 +388,7 @@ Moreover the coefficient of $x_k$ in $y_i$ for $1 \leq i \leq n-1$ is given by:$
 $L_G$ in the previous theorem, is isomorphic to the permutation $\mathrm{S}_n$ lattice $\Z[\mathrm{S}_n/\mathrm{S}_{n-1}]$. For a geometric description of the corresponding algebraic torus see Examples 18 and 19 in \cite{Voskresenskii}.
 
 \end{remark}
-\noindent
+
 Theorem \ref{specialcase} does not say anything about a proper subgroup of $\mathbb{S}_n$. Thus it can just be used to get explicit information about $T_{\mathbb{S}_n}$. In fact using a generic polynomial for $\mathrm{S}_n$, one can construct $K/\Q$. Now we want to prove a general result which works for any subgroup of $\mathbb{S}_n$. The other difference of this result we are talking about with Theorem \ref{specialcase} is, the different descriptions of the field extension. In Theorem \ref{specialcase} we assumed the roots of a polynomial are given, but in the general case we will assume a normal element of the field extension is given. \\
 \\
 Let $K/F$ be a finite Galois extension with finite Galois group $G$. Let $M \in M_{mn}(K)$, $m \leq n$. $G$ acts on the columns of $M$, by acting on entries, that is for $g \in G$ and $M^T_j = \left[m_{1j} \,\,\, m_{2j} \,\,\, \ldots \,\,\, m_{mj}\right]$, $g(M^T_j) = \left[g(m_{1j}) \,\,\, g(m_{2j}) \,\,\, \ldots \,\,\, g(m_{mj})\right]$. When we say that $G$ permutes the columns of $M$ transitively up to sign, we mean: There exists a homomorphism $\rho: G \longrightarrow \mathrm{S}_n$, $\rho(g) = \rho_g$ such that $g(M_i)= (-1)^{s_g}M_{\rho_g(i)}$ for some $s_g \in \lbrace 0, 1\rbrace$ for all $i = 1, \ldots n$ and for each $1 \leq i \neq j \leq n$, there exists $g \in G$ such that $\rho_g(i) = j$. Note that the action of $G$ on the columns of $M$ is not required to be faithful.
@@ -502,7 +488,7 @@ It is also worth presenting the coordinate matrix of the $y_i$'s, as a concrete 
 %\end{tabular}
 %\end{table}
 %\medskip
-\noindent
+
 From the above table one can easily form the matrix 
 $$
 M= \begin{bmatrix}
@@ -526,7 +512,7 @@ $M_4$ & $M_3$ & $M_3$ \\
 \end{table}
 
 \end{example} 
-\noindent
+
 As has been mentioned above, we can apply Lemma \ref{signdet} in order to compute the coordinate ring of an algebraic torus. The following theorem and its constructive proof can be turned into an efficient algorithm to compute the coordinate ring of an algebraic tori.
 \begin{theorem}
 With the assumptions of Theorem \ref{ConstructiveNoNameLemma} $$K[L]^G \cong K[x^{\pm 1}_1, x^{\pm 1}_2, \ldots , x^{\pm 1}_n]^G = F[y_1, \ldots , y_n]_{x_1\cdots x_n}$$ where $ y_i$ is given by $$S = \sum_{\sigma \in G} \sigma \in \Z[G]$$
@@ -648,7 +634,7 @@ so that $G \cong C_4$. Suppose $K= \Q(\rho)$, where $\rho$ is a primitive $5$-th
 %\end{tabular}
 %\end{table}
 %\medskip
-\noindent
+
 Define $$z_i = (1+x_i)^{-1}  \,\,\, \text{for} \, 1\leq i \leq 3. $$ 
 %the action of $G$ on the $z_i$s is given by
 %\begin{table}[H]
@@ -662,7 +648,7 @@ Define $$z_i = (1+x_i)^{-1}  \,\,\, \text{for} \, 1\leq i \leq 3. $$
 %\end{tabular}
 %\end{table}
 %\medskip
-\noindent
+
 To form $y_i$ we need $S = 1+\sigma + \sigma^2 +\sigma ^3$. Then 
 $$y_1 = S(\rho z_1) = \rho z_1 + \rho^2 (1-z_2) + \rho^4 (1-z_1) + \rho^3 z_2 = \rho^2+\rho^4 +(\rho - \rho^4)z_1 + (\rho^3 -\rho^2)z_2 $$ 
 $$y_2 = S(\rho z_2) = \rho z_2 + \rho^2 z_1 + \rho^4 (1-z_2) + \rho^3 (1-z_1)= (\rho^3 + \rho^4) + (\rho^2 -\rho^3)z_1+ (\rho-\rho^4)z_2$$

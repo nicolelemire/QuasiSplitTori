@@ -84,7 +84,7 @@
 
 %%%%%%%%%%%%%%%%
 
-\title{Algebraic Construction of Quasi Split Algebraic Tori}
+\title{Algebraic Construction of Quasi-split Algebraic Tori}
 \author{}
 
 \begin{document}
@@ -102,21 +102,18 @@ $K$. The No Name Lemma asserts that the invariant field of the
 quotient field of $K[L]$, $K(L)^G$ is a purely transcendental
 extension of $K^G$. In other words, there exist $y_1, \ldots , y_n$
 which are algebraically independent over $K^G$ such that $K(L)^G \cong
-K^G(y_1, \ldots , y_n)$. For a Galois extension $K/F$ with $G =
-\mathrm{Gal}(K/F)$ we introduce $\mathcal{Y}=\lbrace y_1, \ldots, y_n
-\rbrace \subset K[L]^G$ with desired properties. For a sign
-permutation $G$-lattice $L$, a more general argument is given so that
-we can concretely find a transcendence basis of $K(L)^G$ over
-$K^G$.  \todo{Improve}
+K^G(y_1, \ldots , y_n)$.  We define elements $\lbrace y_1, \ldots, y_n
+\rbrace \subset K[L]^G$ with the desired properties, in the case when
+$G$ is the Galois group of a finite extension $\mathrm{Gal}(K/F)$, and
+is given as a group of (signed) permutation matrices.
 \end{abstract}
 
 \section{Introduction}
 
 
-
 An algebraic $F$-torus $T$ is an algebraic group defined over a field
-$F$ which {\em splits} over an algebraic closure $\bar F$ of $F$, which is
- isomorphic to a torus (a finite product of copies of the
+$F$ which {\em splits} over an algebraic closure $\bar F$ of $F$, that
+is, which is isomorphic to a torus (a finite product of copies of the
 multiplicative group $\mathbb{G}_m$) over $\bar{F}$. In general,
 $\bar{F}$ is not the smallest field over which $T$ splits: it is known
 that an algebraic $F$-torus $T$ splits over a finite Galois extension
@@ -124,21 +121,20 @@ of $F$. There is a unique minimal such extension, say $K$; if $G =
 \mathrm{Gal}(K/F)$, then $G$ is called the splitting group of $T$. For
 more details, see~\cite[Chapter 2]{Voskresenskii}.
 
-
-A $G$-lattice $L$ is a free $\Z$-module $A$ of finite rank, together
-with a group homomorphism $G \longrightarrow {\rm Aut}(A)$ (the group
-of automorphisms of $A$). Given a module basis of $A$, any group
-homomorphism $G \longrightarrow {\rm GL}(n,\Z)$, with $n={\rm
-  rank}(A)$, gives such an action.  If $K$ is a field, the group
-algebra $K[L]$ of $L$ over $K$ is isomorphic to the $K$-algebra of
-Laurent polynomials $K[x_1^{\pm 1},\dots,x_n^{\pm 1}]$, for some
-indeterminates $x_1,\dots,x_n$.  If $K$ is equipped with an action of
-$G$ (that is, a $G$-field), we can extend the action of $G$ on lattice
-$L$ to an action on $K[L]$; the ring $K[L]^G$ of {\em multiplicative
-  invariants} consists of those elements in $K[L]$ invariant under the
-action of $G$. The fraction field $K(L)$ of $K[L]$ is isomorphic to
-$K(x_1,\dots,x_n)$, and the subfield of invariants under the action of
-$G$ is written $K(L)^G$.
+For a finite group $G$, a $G$-lattice $L$ is a free $\Z$-module $A$ of
+finite rank, together with a group homomorphism $G \longrightarrow
+{\rm Aut}(A)$ (the group of automorphisms of $A$). Given a module
+basis of $A$, any group homomorphism $G \longrightarrow {\rm
+  GL}(n,\Z)$, with $n={\rm rank}(A)$, gives such an action.  If $K$ is
+a field, the group algebra $K[L]$ of $L$ over $K$ is isomorphic to the
+$K$-algebra of Laurent polynomials $K[x_1^{\pm 1},\dots,x_n^{\pm 1}]$,
+for some indeterminates $x_1,\dots,x_n$.  If $K$ is equipped with an
+action of $G$ (that is, a $G$-field), we can extend the action of $G$
+on lattice $L$ to an action on $K[L]$; the ring $K[L]^G$ of {\em
+  multiplicative invariants} consists of those elements in $K[L]$
+invariant under the action of $G$. The fraction field $K(L)$ of $K[L]$
+is isomorphic to $K(x_1,\dots,x_n)$, and the subfield of invariants
+under the action of $G$ is written $K(L)^G$.
 
 It is known that there is a duality between the category of algebraic
 tori with splitting group $G$ and $G$-lattices. For a given algebraic
@@ -146,33 +142,27 @@ torus $T$ with splitting group $G$, its character module
 $\mathrm{Hom}(T,\mathbb{G}_m)$ is a $G$-lattice. Conversely, if $L$ is
 a $G$-lattice, with $G={\rm Gal}(K/F)$ for some finite Galois
 extension $K/F$, then $T=\mathrm{Spec}(K[L]^G)$ is an algebraic
-$F$-torus with splitting group $G$, with coordinate ring $K[L]^G$ and
+$F$-torus with splitting group $G$, coordinate ring $K[L]^G$ and
 function field $K(L)^G$.
 
 A $G$-lattice $L$ is called {\em permutation} (resp.\ {\em sign
   permutation}) if it has a $\Z$-basis which is permuted (resp.\ up to
-sign changes) by $G$. The No Name Lemma asserts that if $L$ is a
-permutation $G$-lattice and $K$ is a $G$-field, then $K(L)^G$ is
-rational over $K^G$~\cite[Chapter~9.4]{Lorenz}; in particular, with
-$G={\rm Gal}(K/F)$, $K(L)^G$ is $F$-rational.
+sign changes) by $G$. In particular, an algebraic torus whose
+corresponding $G$-lattice is a permutation lattice is called a {\em
+  quasi-split torus}. Algebraic tori are characterized as being
+representable as a direct product of groups of the form
+$R_{K/F}(\mathbb{G}_m)$, where $R_{K/F}$ is the Weil restriction (so
+that $R_{K/F}(\mathbb{G}_m)$ is an $F$-group scheme).
 
-In this paper, we give a constructive proof of this fact, by
-exhibiting a basis for such a field of invariants.  In concrete terms,
-we start from a subgroup of $\mathrm{GL}(n,\Z)$ and describe the field
-of functions of an associated torus.
-
-The Weil restriction is a functor such that for any field extension $K/F$ 
-and any affine group scheme, $G$ over $K$, produces an $F$-group scheme 
-$R_{K/F}(G)$. If $A $ is a $K$-algebra, then $R_{K/F}(G)(A) = G(A \otimes_F K)$
- (see \cite[Section 1.3.12]{Voskresenskii}).
-
-An algebraic torus representable as a direct product of groups of the form 
-$R_{K/F}(\mathbb{G}_m)$ is called a quasi split torus. Such algebraic tori 
-are characterized by the condition that their corresponding $G$-lattice is 
-a permutation lattice.
-
-The constructive proof of the No Name Lemma, can be applied to get an expicit 
-transcendence basis of the rational function field of a quasi split algebraic torus.
+The No Name Lemma asserts that if $L$ is a permutation $G$-lattice and
+$K$ is a $G$-field, then $K(L)^G$ is rational over
+$K^G$~\cite[Chapter~9.4]{Lorenz}; in particular, with $G={\rm
+  Gal}(K/F)$, $K(L)^G$ is $F$-rational.  In this paper, we give a
+constructive proof of this fact (and of a slight generalization
+thereof, using signed permutation matrices), by exhibiting a basis for
+such a field of invariants.  In concrete terms, we start from a
+subgroup of $\mathrm{GL}(n,\Z)$ and describe the field of functions of
+an associated torus.
 
 \begin{definition}\label{Assumption}
   Let $G$ be a finite subgroup of $\mathrm{GL}(n,\Z)$.  The
@@ -186,17 +176,17 @@ transcendence basis of the rational function field of a quasi split algebraic to
 Suppose further that we are given an isomorphism $\iota: G \to
 \mathrm{Gal}(K/F)$, for some finite Galois extension $K/F$ (in what
 follows, we simply say that $K/F$ has Galois group $G$). Then, through
-the identification $K[x_1^{\pm 1}, \ldots , x_n^{\pm 1}]\simeq K[L]$,
+the identification $K[x_1^{\pm 1}, \ldots , x_n^{\pm 1}]\simeq K[L_G]$,
 $K[x_1^{\pm 1}, \ldots , x_n^{\pm 1}]$ is equipped with the $G$-action
-as follows:
+defined as follows:
 \begin{itemize}
 \item for $g$ in $G$ and $\alpha$ in $K$, we write
   $g(\alpha)=(\iota(g))(\alpha)$ (so $G$ acts as the Galois group on
   $K$);
-\item for $g$ in $G$ and $i=1,\dots,n$, $g(x_i) = \prod_{j=1}^{j=n}
-  x_j^{g_{i,j}}$, where $g_{i,j}$ is the $(i,j)$th -entry of $g$
+\item for $g$ in $G$ and $i=1,\dots,n$, $g(x_i) = \prod_{j=1}^{n}
+  x_j^{g_{j,i}}$, where $g_{j,i}$ is the $(j,i)$th -entry of $g$
  (so that we also have $g(\be_i) =
-  \sum_{j=1}^{n} g_{i,j}\be_j$).
+  \sum_{j=1}^{n} g_{j,i}\be_j$).
 \end{itemize}
 If we let $T_G$ be the algebraic torus corresponding to $L_G$, then
 $T_G$ is an algebraic $F$-torus which splits over $K$, with character
@@ -220,12 +210,15 @@ by $$g(x_i) = \begin{cases} x_j & \text{if~} g(\be_i) = \be_j
 
 For such groups $G$, the $F$-rationality of the torus $T_{G}$ means
 that for $K(x_1,\dots,x_n)$, endowed with the $G$-action we just
-described, there exist $y_1,\dots,y_n$ such that
-$K(x_1,\dots,x_n)^G=F(y_1,\dots,y_n)$. However, the proofs of the
-No Name Lemma we are aware of~\cite{xxx} are non constructive.  The
-goal of this paper is to exhibit such $y_i$'s; we state two such
-results. \todo{Better discussion needed. How general are our results
-compared to other version of the no-name lemma?}
+described, there exist $y_1,\dots,y_n$ in $K(x_1,\dots,x_n)$ such that
+$K(x_1,\dots,x_n)^G=F(y_1,\dots,y_n)$. However, the proofs of the No
+Name Lemma we are aware of~\cite{xxx}~\todo{which ones?} are non
+constructive.  The goal of this paper is to exhibit such $y_i$'s; we
+state two such results. \todo{Better discussion needed. How general
+  are our results compared to other version of the no-name lemma?}  In
+particular, this can be applied to get an explicit transcendence basis
+of the function field of a quasi-split algebraic torus $T_G$, provided
+$G$ is given as a group of permutation matrices.
 
 In both our theorems, we rely on the notion of {\em normal element} of
 a finite Galois extension $K/F$ with Galois group $G$; we recall that
@@ -293,10 +286,10 @@ we define $g(C) = \left[g(\mu_{1}) \,\,\, g(\mu_{2}) \,\,\, \cdots
   \,\,\, g(\mu_{m})\right]^T$.
 
 Let then $M$ be in $M_{n,n}(K)$. For such a matrix, and for
-$j=1,\dots,n$, its $j$th column is written $M_j=\left[\mu_{1,j} \,\,\,
-  \mu_{2,j} \,\,\, \cdots \,\,\, \mu_{m,j}\right]^T$.  We say that $G$
-{\em permutes the columns of $M$ up to sign} if for $g$ in $G$ and $j$
-in $\{1,\dots,n\}$, we have $g(M_j)= \pm M_{\rho_g(j)}$.
+$i=1,\dots,n$, its $i$th column is written $M_i=\left[\mu_{1,i} \,\,\,
+  \mu_{2,i} \,\,\, \cdots \,\,\, \mu_{m,j}\right]^T$.  We say that $G$
+{\em permutes the columns of $M$ up to sign} if for $g$ in $G$ and $i$
+in $\{1,\dots,n\}$, we have $g(M_i)= \pm M_{\rho_g(i)}$.
  
 \begin{lemma}\label{signdet}
    Let $K/F$ be a finite Galois extension with Galois group $G$. Let
@@ -306,9 +299,9 @@ in $\{1,\dots,n\}$, we have $g(M_j)= \pm M_{\rho_g(j)}$.
 \end{lemma}
 \begin{proof}
   Assume by contradiction that there is a non-zero vector in the left
-  nullspace of $M$; take $\bx$ be a vector with the minimum number of
+  nullspace of $M$; take $\bx$ to be a vector with the minimum number of
   non-zero entries among the non-zero left nullspace elements.
-  Let $k \in \{1,\dots,m\}$ be such that $x_k \neq 0$ and let
+  Let $k \in \{1,\dots,n\}$ be such that $x_k \neq 0$ and let
   $\by=\frac 1{x_k} \bx \in K^n$, so that $y_k = 1$, and $\by$ is
   still in the left nullspace of $M$. 
   
@@ -316,8 +309,8 @@ in $\{1,\dots,n\}$, we have $g(M_j)= \pm M_{\rho_g(j)}$.
   where $M_i$ is the $i$th column of $M$. For $g$ in $G$, we deduce
   $g(\by M_i) = g(\by)g(M_i) = \pm g(\by) M_{\rho_g(i)} = 0$. Since
   this is true for all $i$, we obtain that $g(\by)$ is in the
-  left-nullspace of $M$ as well. This further implies that
-  $\by'=g(\by)-\by$ is in the nullspace of $M$. However, since
+  left nullspace of $M$ as well. This further implies that
+  $\by'=g(\by)-\by$ is in the left nullspace of $M$. However, since
   $y_k=1$, $g(y_k)=1$, so that $y'_k=0$. By construction of $\bx$, this
   implies that $\by'=0$, so that $g(\by)=\by$. 
 
@@ -331,8 +324,8 @@ in $\{1,\dots,n\}$, we have $g(M_j)= \pm M_{\rho_g(j)}$.
   Let $F=\F_q$, for some prime power $q$, and let $K=\F_{q^n}$.  The
   Galois group of $K/F$ is cyclic of size $n$, generated by the Frobenius
   map $x \mapsto x^q$. Let then $(\alpha_1,\dots,\alpha_n)$ be in $K$,
-  and consider the matrix $M=[m_{i,j}]_{1 \le i,j \le n}$, with
-  $m_{i,j} = \alpha_i^{q^{j-1}}$. The Frobenius map permutes the
+  and consider the {\em Moore matrix} $M=[m_{i,j}]_{1 \le i,j \le n}$, with
+  $m_{i,j} = \alpha_i^{q^{j-1}}$ The Frobenius map permutes the
   columns of $M$, and we recover the fact that if
   $(\alpha_1,\dots,\alpha_n)$ are $F$-linearly independent, $M$ is
   invertible~\cite[Corollary~1.3.4]{Goss}
@@ -350,13 +343,13 @@ We can now prove our first result.
 %%   1,\dots,n.$$
 %% \end{theorem}
 \begin{proof}[Proof of Theorem~\ref{nonamenonsign}]
-  We first prove the result under the additional assumption that $G$ acts
-  transitively on $L_G$.  The elements $(y_1,\dots,y_n)$, with $y_i =
-  \sum_{g \in G} g(\alpha x_i)$ as defined in the theorem, are invariant under
-  the action of $G$. We will show below that they are $K$-linearly
-  independent; this will prove that
-  $K(x_1,\dots,x_n)^G=F(y_1,\dots,y_n)$, since then
-  $K(x_1,\dots,x_n)=K(y_1,\dots,y_n)$, and
+  We first prove the result under the additional assumption that $G$
+  acts transitively on $L_G$.  The elements $(y_1,\dots,y_n)$, with
+  $y_i = \sum_{g \in G} g(\alpha x_i)$ as defined in the theorem, are
+  invariant under the action of $G$. We will show below that
+  $K(x_1,\dots,x_n)=K(y_1,\dots,y_n)$; this will prove that
+  $K(x_1,\dots,x_n)^G=F(y_1,\dots,y_n)$, since
+  $K(x_1,\dots,x_n)=K(y_1,\dots,y_n)$ implies that
   $K(y_1,\dots,y_n)^G=K^G(y_1,\dots,y_n)=F(y_1,\dots,y_n)$.
 
   For $i,j$ in $\{1,\dots,n\}$, let $G_{i,j}= \lbrace g \in G: g(x_i)
@@ -375,8 +368,8 @@ We can now prove our first result.
   of $y_i$ with respect to the $K$-basis $\lbrace x_1, \ldots x_n
   \rbrace$ is invertible. The matrix $M$ has entries $m_{i,j} =
   \sum_{g \in G_{i,j}}g(\alpha)$, $i,j = 1, \ldots, n$. We will apply
-  Lemma~\ref{signdet} to show that $M$ has $K$-linearly independent
-  rows.
+  Lemma~\ref{signdet} to show that $M$ is invertible, which is enough
+  to conclude.
 
   We check the hypothesis of the lemma. First, let $\rho: G \to
   \mathfrak{S}_n$, $\rho(g) = \rho_g$ be the group homomorphism that
@@ -392,17 +385,17 @@ We can now prove our first result.
   shows that $h(M_j) = M_{\rho_h(j)}$ for all $j = 1, \ldots, n$, so
   that $G$ permutes the columns of $M$. 
   
-  Finally, the first column $M_1$ has entries $[ \sum_{g \in
-      G_{i,1}}g(\alpha),\ i = 1, \ldots,n ].$ Since $\alpha$ is a
+  Finally, the first column $M_1$ has entries $\sum_{g \in
+      G_{i,1}}g(\alpha)$, $i = 1, \ldots,n$ Since $\alpha$ is a
   normal element of the Galois extension $K/F$ with Galois group $G$,
   the set $\lbrace g(\alpha): g \in G \rbrace$ is $F$-linearly
   independent. Since $G = \sqcup^n_{i =1}G_{i,1}$ is a disjoint union,
   and all $G_{i,1}$ are non-empty,
   the set
-  $$\left\lbrace \sum_{g \in G_{i,1}}g(\alpha), i = 1, \ldots, n \right\rbrace$$ is
-  $F$-linearly independent as well.
-  So Lemma~\ref{signdet} applies, and we conclude that $y_1, \ldots,
-  y_n$ are $K$-linearly independent, as claimed.
+  $$\left\lbrace \sum_{g \in G_{i,1}}g(\alpha),\ i = 1, \ldots, n
+  \right\rbrace$$ is $F$-linearly independent as well.  So
+  Lemma~\ref{signdet} applies, and we conclude that $M$ is invertible,
+  as claimed.
 
   \medskip 
   
@@ -416,9 +409,9 @@ We can now prove our first result.
   for each $k = 1, \ldots, r$, and $K(L_k) = K(x_i \mid x_i \in
   Gx_{j_k})$.
   
-  The lattice $L_G = \oplus^r_{k =1} P_k$ is a direct sum of transitive
+  The lattice $L_G = \oplus^r_{k =1} L_k$ is a direct sum of transitive
   permutation $G$-lattices, and similarly $K(x_1,\dots,x_n)^G$ is the
-  compositum of the fields $K(P_k)$, $k=1,\dots,r$. Thus, using the 
+  compositum of the fields $K(L_k)$, $k=1,\dots,r$. Thus, using the 
   result established in the transitive case, we obtain
   $K(x_1,\dots,x_n)^G=F(y_i \mid x_i \in Gx_{j_k}, k=1,\dots,r)$, where
   for all $k$ and for $x_i \in Gx_{j_k}$, we have $y_i=\sum_{g \in G}
@@ -458,7 +451,7 @@ s(i) = -i & s(\theta) = \theta.
 \end{matrix}
 $$
 Now, define $$\alpha = 1+ \theta + \theta^2 + \theta^3 +i + i\theta + i\theta^2 + i\theta^3;$$
-this is a normal element in $K$. 
+this is a normal element in $K/\Q$. 
 The elements $(y_1,\dots,y_4)$ of Theorem~\ref{nonamenonsign}, expressed 
 on the basis $(x_1,\dots,x_4)$, are given by the coordinate matrix
 $$
@@ -515,7 +508,7 @@ assumption that that $G$ acts transitively up to sign on $L_G$.
 
 \begin{proof}[Proof of Theorem~\ref{nonamesign}]
   Assume first that the action of $G$ is transitive (up to sign).
-  For $i$ in $\{1,\dots,n\}$, define $z_i = (1+x_i)^{-1} $. Now for $g
+  For $i$ in $\{1,\dots,n\}$, define $z_i = (1+x_i)^{-1} $. Then, for $g
   \in G$, $$g(z_i) = \begin{cases} z_j & \text{if} \,\,\, g(x_i) = x_j
     \\ 1-z_j & \text{if} \,\,\, g(x_i) = x_j^{-1},
   \end{cases}$$ 
@@ -523,15 +516,14 @@ assumption that that $G$ acts transitively up to sign on $L_G$.
   can be rewritten as $y_i = \sum_{g \in G} g ({\alpha}z_i)$, for $i$
   in $\{1, \ldots, n\}$; as before, in order to prove that
   $K(z_1,\ldots, z_n)^G = F(y_1, \ldots, y_{n})$, it is enough to
-  prove that $y_1,\dots,y_n$ are $K$-linearly independent.
+  prove that $K(y_1,\dots,y_n)=K(z_1,\dots,z_n)$. This will be done by
+  writing $(1,y_1,\dots,y_n)$ as $K$-linear combinations of
+  $(1,z_1,\dots,z_n)$, and proving that the coordinate matrix is
+  invertible.
 
-  We actually prove that $(1,y_1,\dots,y_n)$ are $K$-linearly
-  independent, by expressing them as $K$-linear combinations of
-  $(1,z_1,\dots,z_n)$ (which are $K$-linearly independent), and
-  proving that the coordinate matrix is invertible.
-
-  For $i,j$ in $\lbrace 1, \ldots , n \rbrace$, let us define $G_{i,j} =
-  \lbrace g \in G : g(z_i) = z_j \,\, \text{or} \,\, g(z_i) = 1-z_j
+  For $i,j$ in $\lbrace 1, \ldots , n \rbrace$, let $G_{i,j}$
+  be defined as in the preamble of this section, that is 
+  $G_{i,j}=\lbrace g \in G : g(z_i) = z_j \,\, \text{or} \,\, g(z_i) = 1-z_j
   \rbrace $. By the transitivity assumption, $G_{i,j}$ is
   non-empty for every $1 \leq i,j \leq n$. Let us further define $G^{+}_{i,j}
   = \lbrace g \in G : g(z_i) = z_j \rbrace$ and $G^{-}_{i,j} =
@@ -606,7 +598,7 @@ $$m_{i\rho_h(j)} = \sum_{g\in G^{+}_{i,\rho_h(j)}}g(\alpha)
 -\sum_{g\in G^{-}_{i,\rho_h(j)}}g(\alpha) = \sum_{g\in
   G^{-}_{i,j}}hg(\alpha) -\sum_{g\in
   G^{+}_{i,j}}hg(\alpha)=-h(m_{i,j}).$$ In other words, $h(M_j) = \pm
-M_{\rho_h(j)}$, so $G$ acts on the columns of $M$.
+M_{\rho_h(j)}$, so $G$ permutes the columns of $M$ up to sign.
 Secondly, the first column $M_1$ has entries 
 $$\sum_{g \in G^{+}_{i,1}}g(\alpha)- \sum_{g \in
   G^{-}_{i,1}}g(\alpha), i = 1, \ldots,n.$$ Since $\alpha$ is a normal
@@ -615,10 +607,11 @@ $G = \sqcup^n_{i =1}G_{i,j}= \sqcup^n_{i =1}(G^{+}_{i,1} \sqcup
 G^{-}_{i,1}) $ is a disjoint union, with all $G_{i,j}$ non-empty (by
 the transitivity of the action), this set is $F$-linearly independent.
 
-So Lemma \ref{signdet} applies, and conclude that $1, y_1, \ldots,
-y_n$ are $K$-linearly independent. As mentioned above, this implies
-that $K(x_1,\dots,x_n)^G=F(y_1,\dots,y_n)$.  This finishes the proof
-in the transitive case; the proof in the general case follows  as in Theorem~\ref{nonamenonsign}.
+So Lemma \ref{signdet} applies, and we conclude that $K(y_1, \ldots,
+y_n)=K(z_1,\dots,z_n)$; this implies that
+$K(x_1,\dots,x_n)^G=F(y_1,\dots,y_n)$.  This finishes the proof in the
+transitive case; the proof in the general case follows as in
+Theorem~\ref{nonamenonsign}.
 \end{proof}
 
 
@@ -652,18 +645,19 @@ $\rho^4$ & $\rho^4$ & $\rho^3$ & $\rho$ &  $\rho^2$
 We choose \todo{who?} as our normal element of the extension $K/\Q$.
 
 With $(z_1,z_2,z_3)$ and $(y_1,y_2,y_3)$
-defined as before, the matrix giving the coordinates of
-$(y_1,y_2,y_3)$ on the basis $(1,x_1,x_2,x_3)$ is
-$$C= \begin{bmatrix}
+defined as before, the matrix $M^*$ giving the coordinates of
+$(1,y_1,y_2,y_3)$ on the basis $(1,z_1,z_2,z_3)$ is
+$$M^*= \begin{bmatrix}
+1 &0&0&0\\
 \rho^2+\rho^4 & \rho -\rho^4 & \rho^3 -\rho^2 & 0\\
 \rho^3+\rho^4 & \rho^2 -\rho^3 & \rho -\rho^4 &0 \\
 \rho^2+\rho^3 &0 &0 & \rho - \rho^2 -\rho^3+\rho^4
 \end{bmatrix}.
 $$ Remark that due to the non-transitivity of the action of $G$, the
-right-hand $3 \times 3$ submatrix of $C$, while invertible, does not satisfy
-the assumptions of Lemma~\ref{signdet} (this matrix is block diagonal,
-with blocks corresponding to $K(x_1,x_2)$ and $K(x_3)$, for which the
-lemma applies).
+bottom-right $3 \times 3$ submatrix of $M^*$, while invertible, does
+not satisfy the assumptions of Lemma~\ref{signdet} (this matrix is
+block diagonal, with blocks corresponding to $K(z_1,z_2)$ and
+$K(z_3)$, for which the lemma applies).
 \end{example}
 
 

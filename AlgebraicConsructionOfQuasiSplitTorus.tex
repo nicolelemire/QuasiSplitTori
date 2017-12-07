@@ -282,7 +282,7 @@ extent; see however some references in~\cite{Kemper,Lorenz,Renault}.
 
 In what follows, we use the following notation: we still write
 $\mathbb{S}_n$, resp.\ $\mathbb{B}_n$, for the groups of permutation,
-resp.\ signed permutation matrices of size $n$;Note that $\mathbb{D}_n$, the group of  diagonal matrices 
+resp.\ signed permutation matrices of size $n$. Note that $\mathbb{D}_n$, the group of  diagonal matrices 
 in $\mathrm{GL}_n(\Z)$ (diagonal matrices with entries in $\{\pm 1\}$) is a normal subgroup of $\mathbb{B}_n$
 such that $\mathbb{B}_n=\mathbb{D}_n\rtimes \mathbb{S}_n$ is a semidirect product.
 We let $\mathfrak{S}_n$ be the symmetric group of size $n$.  Since $\mathbb{S}_n$ is naturally isomorphic to 
@@ -328,8 +328,9 @@ in $\{1,\dots,n\}$, we have $g(M_i)= \pm M_{\rho_g(i)}$.
 \end{lemma}
 \begin{proof}
   Assume by contradiction that there is a non-zero vector in the left
-  nullspace of $M$; take $\bx$ to be a vector with the minimum number of
-  non-zero entries among the non-zero left nullspace elements.
+  nullspace of $M$; take $\bx \in K^n$ to be a vector with the minimum number of
+  non-zero entries among the non-zero left nullspace elements
+  (that is, such that $\bx^T M=0$).
   Let $k \in \{1,\dots,n\}$ be such that $x_k \neq 0$ and let
   $\by=\frac 1{x_k} \bx \in K^n$, so that $y_k = 1$, and $\by$ is
   still in the left nullspace of $M$. 
@@ -344,16 +345,20 @@ in $\{1,\dots,n\}$, we have $g(M_i)= \pm M_{\rho_g(i)}$.
   implies that $\by'=0$, so that $g(\by)=\by$. 
 
   Since this is true for all $g$, we deduce that $\by$ is in $F^n$.
-  Then, the relation $\by M_1=0$ implies that $\by=0$, a
+  Then, the relation $\by^T M_1=0$ implies that $\by=0$, a
   contradiction.
  \end{proof} 
 
 \begin{remark}
-The hypotheses in the above Lemma imply that the induced unsigned action of the group $G$ on the columns of $M$ is a transitive action.  
-Let $H=\mathrm{Stab}_G(M_1)$. Then $h\in H$ fixes $M_1$ and so $M_1\in (K^H)^n$.
-But then the $n$ entries of $M_1$ are contained in $K^H$ and are also $F$-linearly independent.  The size of an $F$-linearly independent set in $K^H$ can be 
-at most $[K^H:F]$.  Then $n\le [K^H:F]=[K^H:K^G]=[G:H]\le n$ implies that $[G:H]=n$.
-But then the orbit of $M_1$ under the action of $G$ has size $[G:H]=[G:\mathrm{Stab}_G(M_1)]=n$.
+The hypotheses in the above lemma imply that the induced unsigned
+action of the group $G$ on the columns of $M$ is a transitive action.
+Let $H=\mathrm{Stab}_G(M_1)$. Then $h\in H$ fixes $M_1$ and so $M_1\in
+(K^H)^n$.  But then the $n$ entries of $M_1$ are contained in $K^H$
+and are also $F$-linearly independent.  The size of an $F$-linearly
+independent set in $K^H$ can be at most $[K^H:F]$.  Then $n\le
+[K^H:F]=[K^H:K^G]=[G:H]\le n$ implies that $[G:H]=n$.  But then the
+orbit of $M_1$ under the action of $G$ has size
+$[G:H]=[G:\mathrm{Stab}_G(M_1)]=n$.
 \end{remark}  
 
 \begin{example}\label{ex:Moore}
@@ -507,8 +512,8 @@ Now, define $$\alpha = 1+ \theta + \theta^2 + \theta^3 +i + i\theta + i\theta^2 
 (\sum_{i=0}^3\theta^i)(1+i);$$
 this is a normal element in $K/\Q$. 
 Note that $G_{1,1}=\mathrm{Stab}_G(x_1)=\langle s\rangle$. Since $r^i(x_1)=x_{i+1}, i=0,1,2,3$,
-we see that $G_{i,i}=mathrm{Stab}_G(x_i)=r^i\mathrm{Stab}_G(x_1)r^{-i}$ and so $G_{1,1}=G_{3,3}=\langle s\rangle$
-and $G_{2,2}=G_{4,4}=\langle r^2s\rangle$. Also note that $r^{j-i}\in G_{i,j}$ where we may consider all exponents of 
+we see that $G_{i,i}=\mathrm{Stab}_G(x_i)=r^i \mathrm{Stab}_G(x_1)r^{-i}$ and so $G_{1,1}=G_{3,3}=\langle s\rangle$
+and $G_{2,2}=G_{4,4}=\langle r^2s\rangle$. Also note that $r^{j-i}\in G_{i,j}$, where we may consider all exponents of 
 $r$ modulo 4.
 This shows that the elements $(y_1,\dots,y_4)$ of Theorem~\ref{nonamenonsign}, expressed 
 on the basis $(x_1,\dots,x_4)$, are given by the coordinate matrix

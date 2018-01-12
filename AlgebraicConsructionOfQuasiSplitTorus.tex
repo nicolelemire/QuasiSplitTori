@@ -85,7 +85,11 @@
 %%%%%%%%%%%%%%%%
 
 \title{Algebraic Construction of Quasi-split Algebraic Tori}
-\author{}
+\author[1]{Armin Jamshidpey}
+\author[2]{Nicole Lemire}
+\author[1]{\'Eric Schost}
+\affil[1]{David Cheriton School of Computer Science, University of Waterloo}
+\affil[2]{Department of Mathematics, Western University}
 
 \begin{document}
 
@@ -97,7 +101,6 @@
 The main purpose of this work is to give a constructive proof for a 
 particular case of the no-name lemma. Let $G$ be a
 finite group, $K$ be a field, $L$ be a permutation $G$-lattice 
-%with the standard basis
 and $K[L]$ be the group algebra of $L$ over
 $K$. The no-name lemma asserts that the invariant field of the
 quotient field of $K[L]$, $K(L)^G$ is a purely transcendental
@@ -160,22 +163,26 @@ representable as a direct product of groups of the form
 $R_{E/F}(\mathbb{G}_m)$, where $R_{E/F}$ is the Weil restriction with 
 respect to a finite separable field extension $E/F$.
 Note that $R_{E/F}(\mathbb{G}_m)$ is a $F$-group scheme with $F$-points $E^{\times}$ and 
-character lattice $\Z[G/H]$ where $K/F$ is a Galois closure of $E/F$, $G={\rm Gal}(K/F)$ and $H$ is the 
+character lattice $\Z[G/H]$, where $K/F$ is a Galois closure of $E/F$, $G={\rm Gal}(K/F)$ and $H$ is the 
 subgroup of $G$ which fixes the subfield $E$.
 %(so
 %that $R_{K/F}(\mathbb{G}_m)$ is an $F$-group scheme).
-[\textbf{Remark (removable): The Weil restriction here is not necessarily with respect to a finite Galois extension $K/F$
-as this would only produce character lattices which are direct sums of the group ring.}]
+The Weil restriction here is not necessarily with respect to a finite Galois extension $K/F$
+as this would only produce character lattices which are direct sums of the group ring.
 
-A specific case of the no-name lemma, which we refer to it with the same name, 
-asserts that if $L$ is a permutation $G$-lattice and
-$K$ is a $G$-field, then $K(L)^G$ is rational over
-$K^G$~\cite[Chapter~9.4]{Lorenz}; in particular, with $G={\rm
-  Gal}(K/F)$, $K(L)^G$ is $F$-rational. The term "no-name lemma" was first used 
-by Dolgachev in \cite{Dolgachev}, expressing the fact that many researchrs 
-discovered the result independently. It is actually more general than the stated 
-version here; see \cite[p. 6]{Dolgachev}, \cite[Section 3.2]{Sansuc}, \cite[Proposition 1.3]{Lenstra}, \cite[Remark 2.4]{Domokos} and \cite[Proposition 1.1]{EndoMiyata}.  In this paper, we give a
-constructive proof of  the no-name lemma (and of a slight generalization
+ %%to which we refer by the same name, 
+
+A specific case of the no-name lemma asserts that if $L$ is a
+permutation $G$-lattice and $K$ is a $G$-field, then $K(L)^G$ is
+rational over $K^G$~\cite[Chapter~9.4]{Lorenz}; in particular, with
+$G={\rm Gal}(K/F)$, $K(L)^G$ is $F$-rational. The term "no-name lemma"
+was first used by Dolgachev in \cite{Dolgachev}, expressing the fact
+that many researchers discovered the result independently. It is
+actually more general than the stated version here; see
+\cite[p.\ 6]{Dolgachev}, \cite[Section 3.2]{Sansuc}, \cite[Proposition
+  1.3]{Lenstra}, \cite[Remark 2.4]{Domokos} and \cite[Proposition
+  1.1]{EndoMiyata}.  In this paper, we give a constructive proof of
+the particular case described above (and of a slight generalization
 thereof, using signed permutation matrices), by exhibiting a basis for
 such a field of invariants.  In concrete terms, we start from a
 subgroup of $\mathrm{GL}(n,\Z)$ and describe the field of functions of
@@ -234,7 +241,7 @@ that for $K(x_1,\dots,x_n)$, endowed with the $G$-action we just
 described, there exist algebraically independent $y_1,\dots,y_n$ in 
 $K(x_1,\dots,x_n)$ such that $K(x_1,\dots,x_n)^G=F(y_1,\dots,y_n)$. 
 However, the proofs of the no-name lemma we are aware of
-are non constructive.  The goal of this paper is to exhibit such 
+are nonconstructive.  The goal of this paper is to exhibit such 
 an algebraically independent set $\{y_i:i=1,\dots,n\}$; we
 state two such results. Note that the first result is a special case of
  the general version of the no-name lemma. In particular, this can be 
@@ -282,6 +289,12 @@ general algorithm for computing the ring of multiplicative invariants
 both above algorithms may be applied to our problem, they 
 will not necessarily produce a transcendence basis of the invariant field. 
 
+
+\paragraph{Acknowledgements.} The third author is supported by an NSERC
+Discovery Grant. We thank Gregor Kemper for his feedback on an earlier 
+version of this work.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -311,7 +324,7 @@ and for all $i,j$ in $\{1,\dots,n\}$, we have $g(x_i) =
 x_{\rho_g(i)}^{\pm 1}$.  For $i,j$ as above, we also denote by
 $G^{\pm}_{i,j}$ the set of all $g$ in $G$ such that $g(x_i)=x^{\pm 1}_j$, that is,
 such that $\rho_g(i)=j$.
-\textbf{Changed notation here to not duplicate permutation case notation}.
+%% \textbf{Changed notation here to not duplicate permutation case notation}.
 
 We start with a lemma that generalizes known facts about Moore
 matrices over finite fields (see Example~\ref{ex:Moore} below). Let
@@ -375,10 +388,10 @@ $[G:H]=[G:\mathrm{Stab}_G(M_1)]=n$.
   Galois group of $K/F$ is cyclic of size $n$, generated by the Frobenius
   map $x \mapsto x^q$. Let then $(\alpha_1,\dots,\alpha_n)$ be in $K$,
   and consider the {\em Moore matrix} $M=[m_{i,j}]_{1 \le i,j \le n}$, with
-  $m_{i,j} = \alpha_i^{q^{j-1}}$ The Frobenius map permutes the
+  $m_{i,j} = \alpha_i^{q^{j-1}}$. The Frobenius map permutes the
   columns of $M$, and we recover the fact that if
   $(\alpha_1,\dots,\alpha_n)$ are $F$-linearly independent, $M$ is
-  invertible~\cite[Corollary~1.3.4]{Goss}
+  invertible~\cite[Corollary~1.3.4]{Goss}.
 \end{example}
 
 
@@ -427,8 +440,8 @@ We can now prove our first result.
   of $y_i$ with respect to the $K$-basis $\lbrace x_1, \ldots x_n
   \rbrace$ is invertible. The matrix $M$ has entries $m_{i,j} =
   \sum_{g \in G_{i,j}}g(\alpha)$, $i,j = 1, \ldots, n$. We will apply
-  Lemma~\ref{signdet} to show that $M$ is invertible, which is enough
-  to conclude.
+  Lemma~\ref{signdet} to show that $M$ is invertible, which is sufficient to 
+  prove the theorem.
 
   We check the hypothesis of the lemma. First, let $\rho: G \to
   \mathfrak{S}_n$, $\rho(g) = \rho_g$ be the group homomorphism that
@@ -436,7 +449,7 @@ We can now prove our first result.
   $\rho_g(i) = j$ if and only if $g(x_i) = x_j$ for all $1 \leq
   i,j\leq n$. We will show that the columns of $M$ are permuted by the
   action of $G$. Let thus $h$ be in $G$. Note that for $g$ in
-  $G_{i,j}$, $hg$ is in $G_{i,\rho_h(j)}$; 
+  $G_{i,j}$, $hg$ is in $G_{i,\rho_h(j)}$.
   Then since $G_{i,j}=g_{i,j}G_{i,i}$ is a left coset of $G_{i,i}$ where $g_{i,j}$
 is an arbitrary element of $G_{i,j}$, we see that $hG_{i,j}=hg_{i,j}G_{i,i}=G_{i,\rho_h(j)}$ 
 since $hg_{ij}\in G_{i,\rho_h(j)}$.  We then get
@@ -449,7 +462,7 @@ since $hg_{ij}\in G_{i,\rho_h(j)}$.  We then get
   that $G$ permutes the columns of $M$. 
   
   Finally, the first column $M_1$ has entries $\sum_{g \in
-      G_{i,1}}g(\alpha)$, $i = 1, \ldots,n$ Since $\alpha$ is a
+      G_{i,1}}g(\alpha)$, $i = 1, \ldots,n$.  Since $\alpha$ is a
   normal element of the Galois extension $K/F$ with Galois group $G$,
   the set $\lbrace g(\alpha): g \in G \rbrace$ is $F$-linearly
   independent. Since $G = \sqcup^n_{i =1}G_{i,1}$ is a disjoint union,
@@ -587,7 +600,7 @@ We conclude with the proof of our second main result.  The proof
 follows that of Theorem~\ref{nonamenonsign}, the only difference being in
 the description of the coordinate matrix $M$.  As in
 Theorem~\ref{nonamenonsign}, we first prove the result under the extra
-assumption that that $G$ acts transitively up to sign on $L_G$.
+assumption that $G$ acts transitively up to sign on $L_G$.
 
 \begin{proof}[Proof of Theorem~\ref{nonamesign}]
   Assume first that the action of $G$ is transitive (up to sign).
@@ -613,7 +626,7 @@ assumption that that $G$ acts transitively up to sign on $L_G$.
   \lbrace g \in G : g(z_i) = 1- z_j \rbrace$, so that $G_{i,j}=
   G^{+}_{i,j}\sqcup G^{-}_{i,j}$.  
 
-Note that $G^+_{i,i}=\textrm{Stab}_G(z_i)$.  This is a subgroup of $G$ as is $G^{\pm}_{i,i}$.  One can show that the left cosets of $G^+_{i,i}$ in $G$ are the non-empty sets in the collection
+Note that $G^+_{i,i}=\textrm{Stab}_G(z_i)$.  Both $G^{\pm}_{i,i}$ and $G^+_{i,i}$ are subgroups of $G$.  One can show that the left cosets of $G^+_{i,i}$ in $G$ are the non-empty sets in the collection
 $$\{G^+_{i,j}:1\le j\le n\} \cup \{G^-_{i,j}: 1\le j\le n\}$$
 By the transitivity assumption, the sets $G^{\pm}_{i,j}\ne \emptyset$
 so one can guarantee that either $G^+_{i,j}\ne \emptyset$ or $G^-_{i,j}\ne \emptyset$ (although both are possible).  If $G^+_{i,j}\ne \emptyset$, and $g_{ij}^+$ is an arbitrary element of $G^+_{i,j}$, then 
@@ -722,6 +735,9 @@ In particular, $\sigma^3(\rho)=\rho^{8}=\rho^3$.
 
 We choose $\rho$ as our normal element of the extension $K/\Q$.
 (A primitive $p$th root of unity is a normal element for the extension over $\Q$ that it generates.)
+
+In this example, note that $G^+_{1,1}=G^+_{2,2}=\{\mathrm{id}\}$, $G^-_{1,1}=G^-{2,2}=\{\sigma^2\}$, $G^+_{1,2}=G^-_{2,1}=\{\sigma\}$, and $G^-_{1,2}=G^+_{2,1}=\{\sigma^3\}$. Also, $G^+_{3,3}=\langle\sigma^2\rangle$ and $G^-_{3,3}=\sigma G^+_{3,3}=
+\langle \sigma,\sigma^3\}$.
 
 With $(z_1,z_2,z_3)$ and $(y_1,y_2,y_3)$
 defined as before, the matrix $M^*$ giving the coordinates of
